@@ -1,0 +1,18 @@
+*{ border: solid 1px red; }
+span{ width: 100px; height: 100px; margin: 10px; }
+.s1{ display: inline; }
+.s2{ display: block; }
+.s3{ display: inline-block;}
+
+/* 
+상위 부모요소에 플렉스 스타일을 준다. 
+하위요소들에 배치 방법 선언
+*/
+.flexbox1{ display: flex;}
+
+.box{
+    box-sizing: content-box;
+    width: 500px;
+    padding: 10px;
+}
+.b2{ box-sizing: border-box;}

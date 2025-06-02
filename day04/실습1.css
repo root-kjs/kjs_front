@@ -1,0 +1,13 @@
+
+span{ 
+    color:orange; 
+}
+.title > span{ 
+    font-size:30px; 
+}
+.content{ 
+    width: 500px;
+    color: #ffffff;
+    padding: 20px; 
+    background: #0c565c;
+}

@@ -1,0 +1,33 @@
+/* 아스키 유니코드 CSS*/
+
+#askiuni{
+
+}
+
+.askiuni_top{
+    display: flex;
+}
+
+.askiuni_withtable{
+    width: 700px;
+    display: flex;
+}
+
+.askiuni_intro{
+    display: flex;
+}
+
+.askiuni_summary{
+    width: 500px;
+}
+
+.askiuni_img{
+    width: 300px;
+    flex-wrap: wrap;
+}
+
+.askiuni_img > img{
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+}

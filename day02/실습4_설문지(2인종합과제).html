@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>실습4_설문지(2인종합과제)</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+   <!-- 설문지 해더 시작 -->
+    <h1>
+        <img src="./logo.jpg"/ alt="청담스킨 성형외과의원"><br/>
+        만족도 조사(입원환자용)
+    </h1>
+    <p>
+        청담스킨 성형외과의원에서는 고객의 만족도 향상을 위해서 여러분의 의견을 수렴하고자 합니다. <br />
+        본 설문지는 오로지 고객 서비스 향상만을 위해서만 사용하겠습니다. <br />
+        언제나 고객님을 위한 최고의 파트너로 함께 하겠습니다. 감사합니다.
+    </p>
+    <hr/>
+    <!-- 설문지 해더 끝 -->
+
+        <h3> 설문자 정보</h3>
+        이름 : <input type="text" /> <br />
+        성별 : <input type="radio" name="성별" /> 남자 <input type="radio" name="성별" /> 여자 <br />
+        나이 : <select>
+            <option>20</option><option>21</option><option>22</option><option>23</option><option>24</option>
+            <option>25</option><option>26</option><option>27</option><option>28</option><option>29</option>
+            <option>30</option><option>31</option><option>32</option><option>33</option><option>34</option>
+            <option>35</option><option>36</option><option>37</option><option>38</option><option>39</option>
+            <option>40</option><option>41</option><option>42</option><option>43</option><option>44</option>
+            <option>45</option><option>46</option><option>47</option><option>48</option><option>49</option><option>50</option>
+        </select> <br />
+        관심분야 : <input type="checkbox" name="관심분야" /> 코 <input type="checkbox" name="관심분야" /> 눈
+                <input type="checkbox" name="관심분야" /> 턱 <input type="checkbox" name="관심분야" /> 뱃살
+                <input type="checkbox" name="관심분야" /> 체형
+        <hr />
+
+        <h3> 만족도 조사 </h3>
+
+        <table border="1" style="border-collapse: collapse;" >
+            <tr>
+                <th>구분</th>
+                <th>매우 그렇다</th><th>그렇다</th><th>보통이다</th><th>그렇지 않다</th><th>매우 그렇지않다</th>
+            </tr>
+            <tr>
+                <th align="left">1. 응대하는 직원이 친절했나요?</th>
+                <td align="center"><input type="radio" name="1" /></td>
+                <td align="center"><input type="radio" name="1" /></td>
+                <td align="center"><input type="radio" name="1" /></td>
+                <td align="center"><input type="radio" name="1" /></td>
+                <td align="center"><input type="radio" name="1" /></td>
+            </tr>
+            <tr>
+                <th align="left">2. 병원의 환경은 쾌적했나요?</th>
+                <td align="center"><input type="radio" name="2" /></td>
+                <td align="center"><input type="radio" name="2" /></td>
+                <td align="center"><input type="radio" name="2" /></td>
+                <td align="center"><input type="radio" name="2" /></td>
+                <td align="center"><input type="radio" name="2" /></td>
+            </tr>
+            <tr>
+                <th align="left">3. 병원 이용 절차가 간편했나요?</th>
+                <td align="center"><input type="radio" name="3" /></td>
+                <td align="center"><input type="radio" name="3" /></td>
+                <td align="center"><input type="radio" name="3" /></td>
+                <td align="center"><input type="radio" name="3" /></td>
+                <td align="center"><input type="radio" name="3" /></td>
+            </tr>
+            <tr>
+                <th align="left">4. 진료 예약 시간이 잘 지켜졌나요?</th>
+                <td align="center"><input type="radio" name="4" /></td>
+                <td align="center"><input type="radio" name="4" /></td>
+                <td align="center"><input type="radio" name="4" /></td>
+                <td align="center"><input type="radio" name="4" /></td>
+                <td align="center"><input type="radio" name="4" /></td>
+            </tr>
+            <tr>
+                <th align="left">5. 시술 결과에 만족하나요?</th>
+                <td align="center"><input type="radio" name="5" /></td>
+                <td align="center"><input type="radio" name="5" /></td>
+                <td align="center"><input type="radio" name="5" /></td>
+                <td align="center"><input type="radio" name="5" /></td>
+                <td align="center"><input type="radio" name="5" /></td>
+            </tr>
+            <tr>
+                <th align="left">6. 무엇이 만족스러웠나요?(중복선택)</th>
+                <td colspan="5" >
+                    <input type="checkbox" name="6" /> 진료 비용
+                    <input type="checkbox" name="6" /> 병원 위치
+                    <input type="checkbox" name="6" /> 시술 결과
+                    <input type="checkbox" name="6" /> 상담 내용
+                    <input type="checkbox" name="6" /> 병원 분위기
+                    <input type="checkbox" name="6" /> 의료진 친절
+                    <input type="checkbox" name="6" /> 이용 절차
+                </td>
+            </tr>
+        </table>
+    <!-- 설문지 푸터 시작 -->
+    <h3>기타ㆍ요청사항</h3>
+    <textarea cols="130" rows="10" placeholder="병원에 바라는 점이 있다면 적어주세요!"></textarea>
+    <hr />
+    작성날짜 <input type="date" /> 작성시간 <input type="time" /><br/><br/>
+    <input type="submit" value="제출하기" /><br />
+    <!-- 설문지 푸터 끝 -->
+</body>
+</html>

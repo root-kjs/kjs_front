@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>컴퓨터에서의 진법 - Hello World</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='layout.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='binary.css'>
+</head>
+<body>
+    <div id="wrap">
+        <!-- 해더(Team.돈까스_최동진) -->
+        <div id="header">
+            <div class="header-team">
+                <a href="main.html"><img src="img/logo_icon.png" /> Hello World </a>
+            </div>
+            <div class="header-nav">
+                <ul class="header-navbutton">
+                    <li> <a href="bit.html"> 모스부호 & 비트 </a> </li>
+                    <li class="active"> <a href="binary.html"> 컴퓨터에서의 진법 </a> </li>
+                    <li> <a href="unicode.html"> 아스키코드 & 유니코드 </a> </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 컨텐츠(Team.돈까스_김진숙) -->
+         <div class="content">
+            <!-- 서브 페이지 영역 -->
+            <div class="sub_page_wrap">
+                <!-- 서브 상단 배너/타이틀 -->
+                <div class="sub_banner">
+                    <video class="bg-video-content" autoplay="" muted="" loop="">
+                    <source src="https://www.cqvista.com/theme/ko/html/image/main/value_security.mp4" type="video/mp4"></video>
+                    <div class="sub_title">
+                        <h2>Binary System</h2>
+                        <p>2진법부터 16진법까지..컴퓨터 숫자의 이해!</p>
+                    </div>
+                </div>
+                <!-- ★★★★ 서브페이지 본문 시작: 여기에 서브페이지 본문 넣으세요!!! ★★★ -->
+                <div class="sub_content_wrap">
+                    <h3>컴퓨터에서의 <span>“진법”</span>이란?</h3>
+                    <p>
+                        <b>진법(進法, numeral system)은 숫자를 표현하는 방법</b> 중 하나로, <br/>
+                        컴퓨터 시스템은 다양한 진법을 사용하지만, 기본적으로 이진법(2진법)을 사용합니다.<br/>
+                        아래는 컴퓨터에서 사용되는 대표적인 진법입니다.
+                    </p>
+                    <p>
+                        <img src="img/numeral.jpg"/><br/>
+                        컴퓨터의 언어 2진법과 인간의 언어 10진법
+                    </p> 
+                    <ol>
+                        <li>2진법 (Binary) → 0, 1로 표현하는 수 체계</li>
+                        <li>8진법 (Octal)  → 0~7 숫자로 표현</li>
+                        <li>10진법 (Decimal) → 사람이 쓰는 기본 숫자</li>
+                        <li>16진법 (Hexadecimal) → 0~9, A~F 숫자와 알파벳 조합</li>
+                    </ol>
+                    <table class="basic">
+                        <tr>
+                            <th>구분</th>
+                            <th><b>2진법</b>(Binary)</th>
+                            <th><b></b>8진법</b>(Octal)</th>
+                            <th><b></b>10진법</b>(Decimal)</th>
+                            <th><b></b>16진법</b>(Hexadecimal)</th>
+                        </tr>
+                        <tr>
+                            <th>표현방법</th>
+                            <td><b>0, 1</b>전기 신호의 ON(1), OFF(0)</td>
+                            <td><b>0~7</b>이진법을 3자리씩 묶어서 표현</td>
+                            <td><b>0~9</b>사람이 사용하는 일반적인 숫자</td>
+                            <td><b>0~9, A~F</b>(A=10, B=11 ~ F=15)이진법 4자리씩 묶어 표현</td>
+                        </tr>
+                        <tr>
+                            <th>진법변환</th>
+                            <td>255(10진수) → 11111111(2진수)</td>
+                            <td>11111111(2진수) → 377</td>
+                            <td>11111111(2진수) → 255</td>
+                            <td>11111111(2진수) → FF</td>
+                        </tr>
+                        <tr>
+                            <th>사용이유</th>
+                            <td>전기 신호와 직접 대응, 컴퓨터 내부 연산</td>
+                            <td>이진법보다 짧게 표현, 과거 시스템 호환</td>
+                            <td>사람이 이해하기 쉬움</td>
+                            <td>이진수 압축 표현, 개발에서 대용량 숫자 압축</td>
+                        </tr>
+                        <tr>
+                            <th>적용예시</th>
+                            <td>데이터 저장, 논리 회로, CPU 내부 연산</td>
+                            <td>UNIX 파일 권한설정 (chmod 755 등)</td>
+                            <td>사용자 인터페이스, 출력 화면, 계산기 등</td>
+                            <td>메모리 주소, 색상 코드(#FF5733), 디버깅</td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- ★★★★ 서브페이지 본문 끝  ★★★ -->
+            </div>
+         </div>
+        <!-- 푸터(Team.돈까스_정은주) -->
+        <div id="bottom">
+            <div class="name">
+                ⓒ 2025 최동진, 정은주, 김진숙 
+                <a href="layout.html">Produced by Team.Tonkatsu.</a>
+            </div>
+            <div class="화살표">
+            <a href="#"><img src="img/btn_top.png"/> </a>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

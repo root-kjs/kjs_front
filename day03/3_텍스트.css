@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Chosunilbo_myungjo';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.title{ 
+    font-family:"궁서"; 
+    font-size: 30px; 
+    text-shadow: 3px 3px 5px red;
+}
+
+.content{ 
+    font-family: "GangwonEdu_OTFBoldA";
+    word-spacing: 5px;
+    letter-spacing: 1px;
+    line-height: 160%;
+ }
+ .writer{
+     text-align: center;
+     text-decoration: line-through overline underline;
+     color: rgb(0,0,255, .5);
+}

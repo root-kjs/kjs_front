@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'SF_HambakSnow';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/SF_HambakSnow.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'HakgyoansimDunggeunmisoTTF-B';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimDunggeunmisoTTF-B.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+h1{ font: italic 50px "궁서"; }
+.content{ color:blue; font:bold 20px "HakgyoansimDunggeunmisoTTF-B"; word-spacing: 10px; letter-spacing: 5px; line-height: 160%; }
+.writer{ color: red; text-decoration: underline overline line-through; text-align: center; text-shadow: 2px 2px 2px rgba(0,0,0,.2);}
+.bold{ font:bold 24px "맑은 고딕"; }
+

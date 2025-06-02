@@ -1,0 +1,51 @@
+* { word-wrap: break-word; 
+    /* margin: 10px; 
+    word-wrap: break-word; 
+    word-break: break-all; 
+    overflow-wrap: break-word;  */
+}
+.box{
+     /* display: flex; */
+    border: solid 1px red;
+    width: 100px;
+    
+}
+.box_con{  width: 100%; /*display: none;*/ display: flex;}
+
+/* flex-wrap: nowrap(기본값) - 하위요소는 부모요소의 사이즈에 맞게 축소*/
+.flexbox1{
+    display: flex;
+    width: 250px;
+    flex-wrap: nowrap;
+    border: solid 1px blue;
+    
+}
+.flexbox2{
+    display: flex;
+    width: 250px;
+    flex-wrap: wrap;
+    border: solid 1px blue;
+}
+
+.flexbox3{
+    display: flex;
+    width: 250px;
+    flex-wrap: wrap-reverse;
+    border: solid 1px blue;
+}
+
+.flexbox4{
+    display: flex;
+    width: 250px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    border: solid 1px blue;
+}
+
+.flexbox5{
+    display: flex;
+    width: 250px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border: solid 1px blue;
+}

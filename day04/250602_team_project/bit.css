@@ -1,0 +1,40 @@
+.sub_content_wrap > .content1 > .title{
+    padding: 30px;
+    font-size: 30px;
+    color: #21469c;
+}
+
+.content1 li{
+    border: solid 2px #6db9ef;
+    margin: 20px 0px;
+    padding: 10px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.이미지 {
+    margin-bottom: 30px;
+}
+
+.sub_content_wrap > .content2 > .title{
+    padding: 30px;
+    font-size: 20px;
+    color: #21469c;
+}
+.내용2{
+    display: flex;
+    justify-content: space-between; 
+}
+.내용설명{
+    border: solid 2px #6db9ef;
+    margin: 20px;
+    text-align: center;
+}
+.내용설명 > h3 {
+    background-color: #6db9ef;
+    padding: 10px;
+}
+.내용설명 > p {
+    padding: 10px 10px;
+    flex-wrap: wrap;
+    width: 250px;
+}

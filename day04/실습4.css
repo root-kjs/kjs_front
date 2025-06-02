@@ -1,0 +1,28 @@
+.item_wrap{ 
+    width: 375px;
+    border: solid 1px #ddd; 
+    margin: 10px; 
+}
+.img_box{ 
+    width: 100%;
+    min-height: 200px;
+    text-align: center;
+}
+.img_box img{
+    width: 100%;
+}
+ /* 상품설명  */
+.text_box{
+    border-top: solid 1px #ddd;
+    padding: 7px 15px 10px;
+}
+.price{
+    font-weight: bold; 
+}
+.memt{ 
+    padding: 20px 0;
+}
+.review b{
+    color:#ffa500;
+}
+
