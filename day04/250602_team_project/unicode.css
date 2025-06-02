@@ -1,33 +1,121 @@
 /* 아스키 유니코드 CSS*/
 
-#askiuni{
-
-}
-
-.askiuni_top{
+.askiuni_withtable {
+    width: 100%;
     display: flex;
+    justify-content: center;
 }
 
-.askiuni_withtable{
-    width: 700px;
+.askiuni_intro {
     display: flex;
+    flex-direction: column;
 }
 
-.askiuni_intro{
+.askiuni_title {
+    text-align: center;
+    margin: 30px;
+    color: #4A90E2;
+    font-size: 24px;
+}
+
+.askiuni_withtable {
     display: flex;
+    gap: 30px;
+    justify-content: center;
 }
 
-.askiuni_summary{
+.askiuni_table {
     width: 500px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-.askiuni_img{
-    width: 300px;
-    flex-wrap: wrap;
+.askiuni_table th {
+    background-color: #4A90E2;
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
 }
 
-.askiuni_img > img{
-    width: 100px;
-    height: 100px;
+.askiuni_table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: top;
+}
+
+.askiuni_table td:first-child {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    width: 80px;
+    text-align: center;
+}
+
+.askiuni_table td:last-child {
+    background-color: white;
+}
+
+.askinuni_summary {
+    color: #4A90E2;
+    margin-bottom: 50px;
+}
+
+.askiuni_sum {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.askiuni_sum li {
+    margin: 15px 0;
+    padding: 15px;
+    background: #f8f9ff;
+    border-left: 4px solid #4A90E2;
+    border-radius: 0 8px 8px 0;
+    position: relative;
+}
+
+.askiuni_img {
+    text-align: center;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.askiuni_img>img {
+    width: 200px;
+    height: 200px;
     border-radius: 20px;
+}
+
+.askiuni_tableimg {
+    text-align: center;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.askiuni_tableimg>img {
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.askiuni_flag {
+    text-align: center;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.askiuni_flag>img {
+    width: 800px;
+    height: 800px;
+    border-radius: 20px;
+}
+
+.askiuni_flag > p{
+    font-weight: bold;
+    font-size: 30px;
 }

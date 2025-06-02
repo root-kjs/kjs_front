@@ -2,8 +2,9 @@
 <html>
 <head>
     <meta charset='utf-8'>
-    <title>Hello World</title>
+    <title>아스키코드 & 유니코드 - Hello World</title>
     <link rel='stylesheet' type='text/css' media='screen' href='layout.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='unicode.css'>
 </head>
 <body>
     <div id="wrap">
@@ -29,19 +30,19 @@
                     <video class="bg-video-content" autoplay="" muted="" loop="">
                     <source src="https://www.cqvista.com/theme/ko/html/image/main/value_security.mp4" type="video/mp4"></video>
                     <div class="sub_title">
-                        <h2> Morse Code & Bit</h2>
-                        <p>점과 선, 0과 1로 시작된 디지털 언어</p>
+                        <h2>ASCII Code & Unicode</h2>
+                        <p>당신이 타이핑하는 모든 글자, 사실은 숫자입니다.</p>
                     </div>
                 </div>
                 <!-- ★★★★ 서브페이지 본문 시작: 여기에 서브페이지 본문 넣으세요!!! ★★★ -->
-               <div class="sub_content_wrap">
+                <div class="sub_content_wrap">
                     <div id="askiuni">
-                        <div class="askiuni_top">
-                            <div class="askiuni_intro">
-                                <h2> 아스키코드와 유니코드 </h2>
+                        <div class="askiuni_intro">
+                            <h2 class="askiuni_title"> 아스키코드와 유니코드 </h2>
+                            <div class="askiuni_withtable">
                                 <table class="askiuni_table">
-                                    <tbody><tr>
-                                        <th> 아스키코드 </th>
+                                    <tr>
+                                        <th colspan="2"> 아스키코드 </th>
                                     </tr>
                                     <tr>
                                         <td> 정의 </td>
@@ -60,10 +61,10 @@
                                         <td> 단점 </td>
                                         <td> 각 나라 별 언어 표현 불가능 </td>
                                     </tr>
-                                </tbody></table>
+                                </table>
                                 <table class="askiuni_table">
-                                    <tbody><tr>
-                                        <th> 유니코드 </th>
+                                    <tr>
+                                        <th colspan="2"> 유니코드 </th>
                                     </tr>
                                     <tr>
                                         <td> 정의 </td>
@@ -81,30 +82,35 @@
                                         <td> 단점 </td>
                                         <td> 2바이트 문자 체계라서 메모리 더 먹음 </td>
                                     </tr>
-                                </tbody></table>
-
-                            </div>
-                            <div class="askiuni_summary">
-                                <h2> 아스키코드와 유니코드 세 줄 요약</h2>
-                                <ul>
-                                    <li> 인코딩은 문자의 출력을 의미한다. </li>
-                                    <li> 아스키코드는 숫자의 조합을 통해 간단히 인코딩을 할 수 있도록 만들어진 표준 부호이다. </li>
-                                    <li> 유니코드는 전 세계 언어로 인코딩할 수 있도록 만들어진 표준 부호이다. </li>
-                                </ul>
+                                </table>
                             </div>
                         </div>
+                        <div class="askiuni_summary">
+                            <h2 class="askiuni_title"> 아스키코드와 유니코드 세 줄 요약</h2>
+                            <ul class="askiuni_sum">
+                                <li> 인코딩은 문자의 출력을 의미한다. </li>
+                                <li> 아스키코드는 숫자의 조합을 통해 간단히 인코딩을 할 수 있도록 만들어진 표준 부호이다. </li>
+                                <li> 유니코드는 전 세계 언어로 인코딩할 수 있도록 만들어진 표준 부호이다. </li>
+                            </ul>
+                        </div>
                         <div class="askiuni_img">
-                            <h3> 아스키코드로 만든 것들 </h3>
+                            <h3 class="askiuni_title"> 아스키코드로 만든 것들 </h3>
                             <img src="./img/aki_game_01.jfif">
                             <img src="./img/aki_game_02.png">
                             <img src="./img/aki_art_01.png">
                             <img src="./img/aki_art_02.png">
-
                         </div>
-
+                        <div class="askiuni_tableimg">
+                            <h3 class="askiuni_title"> 아스키코드 테이블과 한글 유니코드 표 </h3>
+                            <img src="./img/aki_table.png">
+                            <img src="./img/utf-8_table.webp">
+                        </div>
+                        <div class="askiuni_flag">
+                            <h3 class="askiuni_title"> 결론 : 유니코드 덕분에 아름다운 한글을 쓴다 </h3>
+                            <img src="./img/flag.jpg">
+                            <p> 펄-럭</p>
+                        </div>
                     </div>
-                    <!-- ★★★★ 서브페이지 본문 끝  ★★★ -->
-                </div>
                 <!-- ★★★★ 서브페이지 본문 끝  ★★★ -->
             </div>
          </div>

@@ -1,6 +1,6 @@
 /* CSS reset */
 *{ /* font-family: 'Pretendard-Regular';*/
-    border: solid 0px red;
+    /* border: solid 0px red; */
     margin: 0px; padding: 0px; box-sizing: border-box;
 }
 li{ list-style: none;}
@@ -16,7 +16,8 @@ video{ width: 100%; }
 }
 body{
     /* background-color: #6db9ef; */
-    background-color: rgba(0,0,0,.93); 
+    /* background-color: rgba(0,0,0,.93);  */
+    background-color: #121212;
     line-height: 180%;
     letter-spacing: -0.1px;
     color: rgba(0,0,0,.85); 
@@ -25,20 +26,29 @@ body{
 #wrap{ 
     width: 1000px;
     margin:0 auto;
+    position: relative;
 }
 
 /* ######## 해더(Team.돈까스_최동진) 시작 ######### */
 #header{
     display: flex;
+    width: 999px;
     justify-content: space-between;
     align-items: center;
     padding: 40px 20px 34px 18px;
     margin: 0 auto;
+    position: fixed;
+    top:0px; 
+    /* left:0px; */
+    z-index: 999;
+    /* background-color: rgba(0,0,0,.9);  */
+    background-color: #121212;
 }
 
 .header-team{
     display: flex;
     align-items: center;
+    
 }
 
 .header-team a{ 
@@ -98,7 +108,7 @@ body{
     background-color: #fff;
     border-radius:1px 60px 1px 60px;
     box-shadow: 7px 7px #2a76c2; 
-    margin:0 auto 20px;
+    margin:108px auto 20px;
     font:normal 16px "malgun gothic","맑은고딕"; 
 }
 
