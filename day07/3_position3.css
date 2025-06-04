@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+li{
+    list-style: none;
+}
+.bg{
+    width: 600px;
+    height: 450px;
+    position: relative;
+    margin: 30px auto;
+    background-color: red;
+}
+.bg > li{
+    width: 10%;
+    height: 10%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: yellow;
+    border-radius: 20px;
+}
+.bg > li:nth-child(1){
+    top: 15%;
+    left:45%;
+}
+.bg > li:nth-child(2){
+    top: 35%;
+    left:70%;
+}
+.bg > li:nth-child(3){
+    top: 55%;
+    left:70%;
+}
+.bg > li:nth-child(4){
+    top: 75%;
+    right:45%;
+}
+.bg > li:nth-child(5){
+    top: 55%;
+    left:20%;
+}
+.bg > li:nth-child(6){
+    top: 35%;
+    left:20%;
+}

@@ -1,0 +1,46 @@
+.box{
+    width: 100px;
+    height: 100px;
+    border: solid 1px red;
+    background-color: yellow;
+}
+
+.box1{
+    background-color: red;
+    position: relative;
+    top: 50px;
+    left: 50px;
+}
+
+.box2{
+    background-color: green;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.box3{
+    background-color: blue;
+    position: static; /* 위치속성 사용 안됨*/
+    top: 0px;
+    left: 0px;
+
+}
+.box4{
+    position: fixed;
+    background-color: aqua;
+    bottom: 100px;
+    right: 50px;
+}
+
+.box5{
+    position: absolute;
+    background-color: red;
+    top: 100px;
+    right: 50px;
+
+}
+.parent{
+    position: relative;
+    background-color: orange;
+}

@@ -1,0 +1,46 @@
+/* 마크업의 가상 클래스 */
+a{
+    text-decoration: none;
+    color: #000;
+}
+a:visited{
+    color: blueviolet;
+}
+a:active{
+    color: blue;
+}
+a:hover{
+    color: red;
+    text-decoration: underline;
+}
+
+
+/* 마크업의 가상 요소 */
+.box1::before{
+    content:"[가상요소 시작점] ..";
+    background-color: red;
+    padding: 10px;
+   
+}
+.box1::after{
+    content: " (끄읕)";
+    color: blue;
+}
+.box2 li{
+    list-style: none;
+}
+.box2 li::before{
+    content: " ";
+    width: 2px;
+    height: 20px;
+    display: inline-block;
+    background-color: red;
+}
+.box3::before{
+    content: url(../짱구.jpg);
+}
+.box3::after{
+    display: block;
+    content: "🤢";
+}
+
