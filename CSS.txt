@@ -46,3 +46,56 @@ JS : 객체지향 언어 ex] 사람 동작/이벤트
         - 부모선택자 > 자식선택자{ }
     - 자손 선택자 : 띄어쓰기 이용한 자손 선택자
         - 부모선택자 자손선택자{ }
+
+[ CSS 텍스트 속성 ]
+    1. font-family
+    2. font-size
+    3. font-style: italic;
+    4. font-weight
+    5. color
+    6. word-spacing
+    7. letter-spacing
+    8. line-height
+    9. text-align
+    10. text-decoration 
+    11. text-shadow
+    ----------------
+    12. border
+    13. border-radius
+    14. box-shadow
+    15. width
+    16. height
+    17. padding
+    18. margin
+        margin: 0 auto ;
+    19. background-color
+    20. display :
+            1. inline
+            2. block 
+            3. inline-block 
+            4. none
+            5. flex
+    21. box-sizing
+
+[ flex ]
+    - *하위 요소들의 배치 방법
+    1. flex-wrap
+        1. nowrap(기본값)   : 하위 요소들의 크기가 더 크면 자동으로 크기 맞춤
+        2. wrap            : 하위 요소들의 크기가 더 크면 자동으로 줄바꿈 
+    2. flex-direction       
+        1. row(기본값)      : 하위 요소들의 가로 방향 배치
+        2. column           : 하위 요소들의 세로 방향 배치
+    3. justify-content
+        1. flex-start(기본값): 가로 왼쪽 정렬 
+        2. flex-end         : 가로 오른쪽 정렬 
+        3. center           : 가로 가운데 정렬
+        4. space-between    : 양쪽 여백끝에 여백없이 사이 여백 균등 정렬
+        5. space-around     : 양쪽 여백끝에 사이여백50%하고 사이 여백 균등 정렬
+        6. space-evenly     : 양쪽 여뱌갹과 사이여백 균등 정렬
+    4. align-items
+        1. stretch(기본값)   : 하위 요소들의 세로크기가 고정이 아니면 자동으로 부모 세로크기만큼 늘어남
+        2. center           : 세로 가운데 정렬
+        3. flex-end         : 세로 밑변 정렬 
+        4. flex-start       : 세로 윗변 정렬
+        
+
