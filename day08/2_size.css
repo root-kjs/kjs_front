@@ -1,0 +1,39 @@
+.box{
+    border: solid 1px red;
+    padding: 10px;
+    margin-bottom: 100px;
+}
+.widthHeight{
+    width: 200px;
+    height: 200px;
+}
+.minwidth{
+    min-width: 600px;
+}
+
+.maxwidth{
+    max-width: 600px;
+}
+
+.minHeight{
+    min-height: 200px;
+    width: 200px;
+}
+
+.maxHeight{
+    max-height: 100px;
+    width: 200px
+}
+
+.overflow > div{
+    width: 100px;
+    height: 100px;
+    background-color: aquamarine;
+}
+
+.overflow :nth-child(2){
+    overflow: auto;
+}
+
+
+

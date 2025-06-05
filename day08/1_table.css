@@ -1,0 +1,129 @@
+.basic_table{
+    width: 500px;
+    border: solid 1px red;
+    border-collapse: collapse;
+}
+.basic_table th{
+    border: solid 1px red;
+    padding: 5px;
+}
+.basic_table td{
+    border: solid 1px red;
+    padding: 5px;
+}
+
+.basic_table td:nth-child(n+2){
+    text-align: right;
+}
+.basic_table td[colspan]{
+    text-align: center;
+}
+.basic_table td[colspan="4"]{
+    background-color: red;
+}
+.basic_table tr:nth-child(1){
+    background-color: aquamarine;
+}
+.basic_table td:nth-child(1){
+    background-color: aqua;
+}
+
+/* 스티키 테이블 스타일 */
+.box{ 
+    width: 300px; 
+    height: 300px;
+    overflow: auto;
+    
+}
+.basic_table2{
+    width: 500px;
+    border-collapse: collapse;
+    /* border-top:solid 10px blue; */
+    text-align: center;
+}
+.basic_table2 thead th{
+    border-top:solid 1px blue;
+    background-color: blue;
+    color: #fff;
+}
+.basic_table2 tr:nth-child(odd){
+    background-color: #eee;
+}
+.basic_table2 tr:hover{
+    background-color: rgb(156, 156, 248);
+}
+
+.basic_table2 tbody td:first-child{
+    background-color: #fff;
+}
+.basic_table2 tbody tr:nth-child(odd) td{
+    background-color: #eee;
+}
+.basic_table2 tbody tr:nth-child(even) td{
+    background-color: #fff;
+}
+
+/* 스티키 테이블 고정 */
+.basic_table2 thead th{ /* 스티키 첫 줄 t해더/t바디 */
+    position: sticky;
+    top:0;
+}
+.basic_table2 thead th:first-child{
+    position: sticky;
+    left:0;
+    z-index: 2;
+}
+.basic_table2 tbody td:first-child
+{
+    position: sticky;
+    left:0;
+    z-index: 1;
+}
+
+.basic_table2 tfoot td, /* 스티키 t푸터 */
+.basic_table2 tfoot th{
+    background-color: blue;
+    color: #fff;
+}
+.basic_table2 tfoot th:first-child
+{
+    position: sticky;
+    left:0;
+    bottom:0;
+    z-index: 2;
+}
+.basic_table2 tfoot td
+{
+    position: sticky;
+    bottom:0;
+    z-index: 1;
+}
+
+/* /////////////////// 특정 열(3열)고정 /////////////// */
+.basic_table2 thead th:nth-child(3){ /* 스티키 첫 줄 t해더/t바디 */
+    position: sticky;
+    top:0;
+    left:70px;
+    z-index: 2;
+}
+.basic_table2 tbody td:nth-child(3){
+    position: sticky;
+    left:70px;
+    z-index: 1;
+}
+
+/* 스티키 t푸터 */
+.basic_table2 tfoot td:nth-child(3){
+    background-color: blue;
+    color: #fff;
+    left:70px;
+    z-index: 1;
+}
+
+.basic_table2 tfoot td:nth-child(3){
+    position: sticky;
+    bottom:0;
+    left:70px;
+    z-index: 3;
+}
+/* 스티키 테이블 끝 */

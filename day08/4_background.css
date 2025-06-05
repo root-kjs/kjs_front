@@ -1,0 +1,45 @@
+.box{
+    border: solid 2px red;
+    padding: 30px;
+}
+.box p{
+    background-color: rgba(255,255,255,.7);
+    text-align: center;
+
+}
+
+.color1{
+    background-color: blue;
+}
+
+.img1{ /* 파일 경로 */
+    background-image: url(img/bg.jpg);
+    background-position: center;
+}
+
+.img2{ 
+    background-image: url(img/pattern.jpg);
+    background-position: center;
+}
+
+.img3{ 
+    background:red url(img/icon_man.png) no-repeat center top;
+    /* background-position: center; */
+    /* background-repeat: no-repeat; */
+    background-size: contain;
+}
+
+.img4{ 
+    background:red url(img/bg.jpg) no-repeat center;
+    /* background-position: center; */
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+    background-attachment: fixed;
+}
+.box2{
+    border: solid 1px red;
+    width: 80px;
+    height: 80px;
+    background: url(../img/icon_naver.png) no-repeat -20px -180px;
+  
+}

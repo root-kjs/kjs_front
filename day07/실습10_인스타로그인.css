@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+li{ list-style: none; }
+a{ text-decoration: none; }
+
+/* 전체 레이아웃 */
+#wrap{  }
+#container{
+    width:770px; 
+    background: url(img/instagram-web-lox-image.png) no-repeat left center;
+    background-size: 450px;
+    padding: 0 0 0 500px; 
+    margin: 50px auto;
+}
+/* 해더 */
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header h1{
+    width: 180px;
+    height: 60px;
+    font-size: 0;
+    background: url(//static.cdninstagram.com/rsrc.php/v4/yB/r/E7m8ZCMOFDS.png) no-repeat 0px -45px;
+}
+main{
+    width: 270px;
+}
+
+/* 로그인 입력창 */
+.login_box input{
+    display: block;
+    width: 97%;
+    background: rgba(0,0,0,.03); 
+    border:solid 1px rgba(0,0,0,.1);
+    padding: 5px;
+    margin: 5px;
+    font:normal 12px/22px "malgungothic";
+    border-radius: 3px;
+}
+.login_box input:focus{
+    outline: none;
+    border-color: rgba(0,0,0,.2);
+}
+.login_box button{
+    display: block;
+    width: 97%;
+    background: #4cb5f9; 
+    border:0;
+    padding: 5px;
+    margin:10px 5px;
+    color: #fff;
+    font:bold 14px/22px "malgungothic";
+    border-radius: 7px;
+}
+
+/* 비번찾기/회원가입/앱다운로드 */
+main p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:20px 5px;
+    font-size: 14px;
+}
+main .or{
+    font:bold 13px/22px "malgungothic";
+    color: rgba(0,0,0,.55);
+    /* background-color: red; */
+}
+main .or::before{
+    content:"";
+    display: block;
+    width: 100px;
+    height: 1px;
+    background: rgba(0,0,0,.15);
+    margin-right: 12px;
+}
+
+main .or::after{
+    content:"";
+    display: block;
+    width: 110px;
+    height: 1px;
+    background: rgba(0,0,0,.15);
+    margin-left: 12px;
+}
+
+.download_app img{
+    width: 100%;
+}
+.facebook a{
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    color: #3b79ea;
+}
+.facebook a svg{
+    color: #4cb5f9;
+    margin-right: 5px;
+}
+.find_pw a{ 
+    color:#003d74;
+}
+.sign_up a{ 
+    font-weight: 600;
+    margin-left: 5px;
+    color: #4cb5f9;
+    font-size: 15px;
+}
+
