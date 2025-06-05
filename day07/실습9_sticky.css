@@ -4,7 +4,7 @@ a{ text-decoration: none; color: rgba(0,0,0,.95);}
 li{ list-style: none; }
 
 
-/* 해더 */
+/* 해더 top_member_menu */
 #header .top_member_menu{ 
     display: flex;
     justify-content: flex-end;
@@ -18,9 +18,7 @@ li{ list-style: none; }
     display: flex;
     align-items: center;
 }
-
 .top_member_menu li a::after{
-    /* content:"|"; */
     content:"";
     display: inline-block;
     margin:0 5px 0 8px;
@@ -31,12 +29,12 @@ li{ list-style: none; }
 .top_member_menu li:last-child a::after{
      display: none;
 }
-
 #header .top_member_menu li img{
     width: 18px;
     margin-top: 3px;
 }
-/* 해더  GNB */
+
+/* 해더 GNB */
 #header{ 
     display: contents;
 }
@@ -64,7 +62,6 @@ li{ list-style: none; }
     width:86%;
     display: flex;
     justify-content: space-between;
-    
 }
 .gnb{
     display: flex;
@@ -147,15 +144,12 @@ li{ list-style: none; }
 
 /* 메인배너 */
 #main_banner{
-    /* min-width: 1100px; */
     display: flex;
     justify-content: center;
 }
-
 #main_banner img{
     width: 100%;
 }
-
 /* 본문 내용 > 상품리스트 */
 #main{
     margin:40px auto;
@@ -168,6 +162,7 @@ li{ list-style: none; }
     text-align: center;
     font-size: 14px;
     color: rgba(0,0,0,.4);
+    padding-top: 10px;
 }
 #main .hot_item{
     display: flex;
@@ -181,13 +176,14 @@ li{ list-style: none; }
 #main .hot_item li img{ 
     width: 100%;
 }
-/* 상품 옵션  */
+
+/* 본문 내용 > 상품리스트> 상품 옵션  */
 .color_review{
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 14px;
-    color: rgba(0,0,0,.4);
+    color: rgba(0,0,0,.6);
 }
 .hot_item .color{
     display: flex;
@@ -217,10 +213,11 @@ li{ list-style: none; }
 .hot_item .sale{
     display: flex;
     justify-content: space-between;
+    font-size: 16px;
 }
 .hot_item .sale span{
     text-decoration:line-through;
-    color: rgba(0,0,0,.4);
+    color: rgba(0,0,0,.6);
 }
 .hot_item .sale b{
     font-size: 20px;
@@ -237,7 +234,7 @@ li{ list-style: none; }
     color: rgb(33, 33, 169);
 }
 
-/* 푸터 */
+/* 푸터(고객센터/주소) */
 #footer .cs_center_bg{
     background-color: rgba(0,0,0,.05);
     font:normal 14px "malgungothic";
@@ -263,8 +260,11 @@ li{ list-style: none; }
     font-style: normal;
     padding: 40px 0;
     text-align: center;
-    font-size: 14px;
+    font-size: 13px;
     color: rgba(0,0,0,.7);
+}
+address > ul > li span{
+    display: inline-block;
 }
 address > ul > li span::before{
     content: "";
@@ -285,7 +285,6 @@ address > ul > li span:first-child:before{
     top:200px;
     border: solid 1px #ddd;
 }
-
 .right_fixed_menu li a{
     display: block;
     background-color: #eee;
@@ -296,4 +295,3 @@ address > ul > li span:first-child:before{
 .right_fixed_menu li img{
     width: 20px;
 }
-
