@@ -69,7 +69,8 @@ li{ list-style: none; }
     padding-left:10px;
     overflow: hidden;
     text-overflow: ellipsis;
-    display: -webkit-box;
+    white-space: nowrap;
+    /* display: -webkit-box; */
    
 }
 .gnb > li{
@@ -83,6 +84,7 @@ li{ list-style: none; }
     line-height: 100%;
     word-break: break-all;
     padding: 0 15px;
+
 }
 .gnb > li:first-child > a{
     padding-left: 0;

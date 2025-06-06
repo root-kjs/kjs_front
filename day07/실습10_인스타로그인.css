@@ -1,44 +1,49 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+*{ margin: 0; padding: 0; box-sizing: border-box; }
 li{ list-style: none; }
 a{ text-decoration: none; }
 
 /* 전체 레이아웃 */
-#wrap{  }
+#wrap{  
+    
+}
 #container{
-    width:770px; 
-    background: url(img/instagram-web-lox-image.png) no-repeat left center;
-    background-size: 450px;
-    padding: 0 0 0 500px; 
-    margin: 50px auto;
+    width:880px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 8% auto;
+    background: url(img/instagram-web-lox-image-2x.png) no-repeat -20px center;
+    background-size: 550px;
+    padding: 0 0 0 570px; 
+}
+@media (max-width: 944px){
+	#container{
+        width:100%; 
+        background:none;
+        padding: 0; 
+        margin-top: 15%;
+    }
 }
 /* 해더 */
-header{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 header h1{
     width: 180px;
     height: 60px;
     font-size: 0;
-    background: url(//static.cdninstagram.com/rsrc.php/v4/yB/r/E7m8ZCMOFDS.png) no-repeat 0px -45px;
-}
-main{
-    width: 270px;
+    background: url(//static.cdninstagram.com/rsrc.php/v4/yB/r/E7m8ZCMOFDS.png) no-repeat 3px -45px;
 }
 
 /* 로그인 입력창 */
+main{
+    width: 270px;
+    margin-top: 25px;
+}
 .login_box input{
     display: block;
     width: 97%;
     background: rgba(0,0,0,.03); 
     border:solid 1px rgba(0,0,0,.1);
-    padding: 5px;
-    margin: 5px;
+    padding: 8px;
+    margin: 7px auto;
     font:normal 12px/22px "malgungothic";
     border-radius: 3px;
 }
@@ -59,27 +64,26 @@ main{
 }
 
 /* 비번찾기/회원가입/앱다운로드 */
-main p{
+p{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin:20px 5px;
+    margin:20px 1px;
     font-size: 14px;
 }
 main .or{
-    font:bold 13px/22px "malgungothic";
+    font:bold 13px/20px "malgungothic";
     color: rgba(0,0,0,.55);
     /* background-color: red; */
 }
 main .or::before{
     content:"";
     display: block;
-    width: 100px;
+    width: 110px;
     height: 1px;
     background: rgba(0,0,0,.15);
     margin-right: 12px;
 }
-
 main .or::after{
     content:"";
     display: block;
@@ -88,15 +92,11 @@ main .or::after{
     background: rgba(0,0,0,.15);
     margin-left: 12px;
 }
-
-.download_app img{
-    width: 100%;
-}
 .facebook a{
     font-weight: 600;
     display: flex;
     align-items: center;
-    color: #3b79ea;
+    color: #3ea7ed;
 }
 .facebook a svg{
     color: #4cb5f9;
@@ -111,4 +111,42 @@ main .or::after{
     color: #4cb5f9;
     font-size: 15px;
 }
-
+.download_app{
+    padding-top: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+.download_app img{
+    margin:-10px 5px 0 5px;
+    height: 40px;
+    border-radius: 10px;
+}
+/* 푸터 */
+footer{
+    text-align: center;
+    font-size: 12px;
+    line-height: 190%;
+    margin: 3% auto;
+}
+.footer_menu{
+    margin:0 20px 10px;
+    cursor: default;
+}
+.footer_menu a{
+    color: #737373;
+    margin: 0 6px;
+    display: inline-block;
+}
+.footer_menu a:hover{
+    text-decoration: underline;
+}
+footer select{
+    border: 0;
+    color: #737373;
+    outline:none;
+    cursor: pointer;
+}
+footer small{
+    font-size: 12px;
+    color: #737373;
+}

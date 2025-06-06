@@ -3,11 +3,12 @@
 <head>
     <meta charset='utf-8'>
     <title>실습10_인스타로그인</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel='stylesheet' type='text/css' media='screen' href='실습10_인스타로그인.css'>
 </head>
 <body>
     <div id="wrap">
-        <!-- 로그인 박스 영역 -->
+        <!-- 로그인 영역(container) -->
         <div id="container">
             <header>
                 <h1>Instagram</h1>
@@ -30,25 +31,27 @@
                 <p class="sign_up">
                     계정이 없으신가요? <a href="#">가입하기</a>
                 </p>
-                <p class="download_app">
+                <div class="download_app">
                     앱을 다운로드 하세요.
-                    <a href="#">
-                        <img src="//static.cdninstagram.com/rsrc.php/v4/ye/r/UtJtFmFLCiD.png" alt="다운로드하기 Google Play"/>
-                    </a>
-                    <a href="#">
-                        <img src="//static.cdninstagram.com/rsrc.php/v4/yw/r/LBxTdceDfgS.png" alt="Microsoft에서 가져오기"/>
-                    </a>
-                </p>
+                    <p>
+                        <a href="#">
+                            <img src="//static.cdninstagram.com/rsrc.php/v4/ye/r/UtJtFmFLCiD.png" alt="다운로드하기 Google Play"/>
+                        </a>
+                        <a href="#">
+                            <img src="//static.cdninstagram.com/rsrc.php/v4/yw/r/LBxTdceDfgS.png" alt="Microsoft에서 가져오기"/>
+                        </a>
+                    </p>
+                </div>
             </main>
         </div>
-        <!-- 로그인 박스 영역 끝 -->
+        <!-- 로그인 영역(container) 끝 -->
         <footer>
             <div class="footer_menu">
                 <a href="#">Meta</a>
                 <a href="#">소개</a>
                 <a href="#">블로그</a>
                 <a href="#">채용 정보</a>
-                <a href="#">>도움말</a>
+                <a href="#">도움말</a>
                 <a href="#">API</a>
                 <a href="#">개인정보처리방침</a>
                 <a href="#">약관</a>
@@ -57,15 +60,15 @@
                 <a href="#">Threads</a>
                 <a href="#">연락처 업로드 & 비사용자</a>
                 <a href="#">Meta Verified</a>
-                <selectbox>
-                    <option>한국어</option>
-                    <option>日本語</option>
-                    <option>English</option>
-                    <option>فارسی</option>
-                </selectbox>
-                <span>© 2025 Instagram from Meta</span>
             </div>
+            <select>
+                <option>한국어</option>
+                <option>日本語</option>
+                <option>English</option>
+                <option>فارسی</option>
+            </select>
+            <small>&copy; 2025 Instagram from Meta</small>
         </footer>
     </div>
-</body>
+    <!-- wrap 끝 -->
 </html>
