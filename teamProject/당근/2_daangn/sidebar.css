@@ -1,0 +1,156 @@
+/* ================= 기본 설정 ================= */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ================= 본문 ================= */
+#main {
+    display: flex;
+    width: 1280px;
+    margin: 0 auto;
+} /* 범위 설정 */
+
+/* ================= 본문 사이드바 (width: 240px) ================= */
+#sidebar {
+    width: 240px;
+    margin: 20px;
+} /* 사이드바 기본 설정 */
+
+.title {
+    border-top: 1px solid #eeeeee;
+    padding-top: 25px;
+    padding-bottom: 20px;
+} /* 사이드바 제목 설정 (회색 바 추가 및 정렬) */
+
+/* ================= 사이드바 버튼 설정 ================= */
+.checkbox_filter {
+    margin: 25px 0;
+    appearance: none;
+    border: max(1px, 1px) solid lightgray;
+    border-radius: 5px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+} /* 체크박스 디자인 */
+
+.checkbox_filter:checked {
+    background-color: tomato;
+} /* 라디오: 체크 */
+
+.checkbox_filter:hover {
+    box-shadow: inset 0px 0px 30px #eeeeee;
+} /* 체크박스: 마우스 호버 */
+
+.radio {
+    margin: 3px 0;
+    appearance: none;
+    border: max(1px, 1px) solid lightgray;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+} /* 라디오 디자인 */
+
+.radio:checked {
+    border: 6px solid tomato;
+} /* 라디오: 체크 */
+
+.radio:hover {
+    box-shadow: inset 0px 0px 30px #eeeeee;
+} /* 라디오: 마우스 호버 */
+
+/* ================= 사이드바: 필터 탭 ================= */
+.filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} /* 필터 탭 정렬 */
+
+.reset_filter {
+    background-color: white;
+    color: gray;
+    font-size: 13px;
+    text-decoration: underline;
+} /* 초기화 버튼 */
+
+.checkbox {
+    display: flex;
+    align-items: center;
+} /* 체크박스 정렬 */
+
+.checkbox > span {
+    margin-left: 6px;
+} /* 체크박스, 글자 간격 조절 */
+
+/* ================= 사이드바: 위치 탭 ================= */
+.location > p {
+    padding-bottom: 15px;
+} /* 위치 글자 간격 조절 */
+
+.location > div {
+    display: flex;
+    align-items: center;
+    margin-top: 3px;
+} /* 라디오 정렬 */
+
+.location > div > span {
+    margin-left: 6px;
+} /* 라디오, 글자 간격 조절 */
+
+.more {
+    color: darkorange;
+    font-size: 13px;
+    text-decoration: none;
+    margin-top: 15px;
+    margin-bottom: 25px;   
+} /* 더보기 버튼 */
+
+/* ================= 사이드바: 카테고리 탭 ================= */
+.category > div {
+    display: flex;
+    align-items: center;
+    margin-top: 3px;
+} /* 라디오 정렬 */
+
+.category > div > span {
+    margin-left: 6px;
+} /* 라디오, 글자 간격 조절 */
+
+/* ================= 사이드바: 가격 탭 ================= */
+.price {
+    margin-top: 25px;
+} /* 카테고리, 가격 탭 간격 조절 */
+
+.button_price {
+    padding: 10px 15px;
+    margin: 5px 0;
+    background-color: white;
+    border: 1px solid #eeeeee;
+    border-radius: 30px;
+    cursor: pointer;
+} /* 가격 버튼 디자인 */
+
+.input_price {
+    width: 100px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    padding: 8px 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+} /* 가격 인풋 디자인 */
+
+.submit {
+    color: gray;
+    font-size: 14px;
+    text-decoration: underline;
+} /* 적용하기 버튼 */

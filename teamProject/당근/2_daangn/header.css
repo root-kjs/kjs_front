@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+#header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  border-bottom: 1px solid #eee;
+}
+
+body {
+    background-color: #fff;
+    color: #222;
+}
+
+#main_header {
+    padding: 20px 40px;
+    border-bottom: 1px solid #eee;
+}
+
+#menu_top, #keyword_bar {
+  display: flex;
+  flex-wrap: wrap;   /* 줄바꿈 허용 */
+  gap: 12px;          /* 메뉴 간격 */
+  justify-content: center;
+}
+
+.menu_top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 35px;
+}
+
+.main_menu {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.main_menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.app_download {
+    background-color: orangered;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.search_bar {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background-color: #f7f7f7;
+    padding: 10px 15px;
+    border-radius: 20px;
+}
+
+.category_select,
+.search_input,
+.search_botton {
+    border: none;
+    background: none;
+    font-size: 14px;
+}
+
+.search_input {
+    flex: 1;
+    padding: 6px;
+}
+
+.search_botton {
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+.keyword_bar {
+    margin-top: 10px;
+}
+
+.keywords {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    color: #555;
+    font-size: 13px;
+}
+
+.keywords a {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+
+.keywords li {
+  margin-right: 15px;
+}
+
+.populer {
+    color: gray;
+    font-weight: bold;
+    font-size: 15px;
+}
