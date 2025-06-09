@@ -3,13 +3,118 @@
 a{ text-decoration: none; }
 li{ list-style: none; }
 
-/* 레이아웃 공통영역(.id) */
-#wrap{
-    max-width: 1240px;
-    margin: 0 auto;
+/* 웹폰트 */
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
 }
 
-/* footer (레이아웃 공통영역) */
+
+/* [공통] #footer */
 #footer{
-    padding: 50px 2%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+/* 푸터 로고/사이트맵 영역 */
+.f_sitemap_wrap{
+    display: flex;
+    justify-content:space-between;
+}
+.f_sitemap_wrap a{
+    color: #2a3038;
+}
+.btn_sns > a{
+    display: inline-block;
+    margin: 20px 10px 30px 0;
+}
+/* 푸터 사이트맵 */
+.f_sitemap{
+    display: flex;
+    width: 65%;
+    flex-wrap: wrap;
+}
+.f_sitemap ul{
+    padding: 0 0 20px 100px;
+}
+.f_sitemap li{
+    padding: 3px 0;
+}
+.f_sitemap li:first-child{
+    font:600 16px/30px "Pretendard-Regular";
+    letter-spacing: 1px;
+}
+.f_sitemap ul li a{
+    font-size: 13px;
+}
+.f_sitemap ul li a:hover{
+    opacity: .6;
+}
+.f_sitemap ul li a[target="_blank"]::after{
+    content: "";
+    display: inline-block;
+    background: url(img/icon_arrow.png) no-repeat right bottom;
+    background-size: contain;
+    width: 14px;
+    height: 12px;
+}
+/* 푸터 주소 */
+address{
+    margin-top:30px;
+    padding: 40px 0 30px 0;
+    border-top: solid 1px rgba(0,0,0,.07);
+    font-size: 14px;
+    font-style: normal;
+    color: rgba(0,0,0,.45);
+}
+address p strong{
+    display: block;
+}
+address p > b:nth-child(n+2)::before{
+    content: "";
+    display: inline-block;
+    background: rgba(0,0,0,.3);
+    width: 1px;
+    height: 10px;
+    margin: 0 8px;
+}
+/* 푸터 하단 이용약관 메뉴 */
+.footer_menu{
+    display: flex;
+}
+.footer_menu li{
+    padding: 0 20px 0 0;
+}
+.footer_menu li a{
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(0,0,0,.45);
+}
+
+/* ######## 푸터 반응형 CSS ######## */
+@media (max-width: 1240px){
+    #footer{
+        padding: 50px 5%;
+    }
+    .f_sitemap{
+        width: 80%;
+    }
+}
+@media (max-width: 992px){
+    #footer{
+        padding: 50px 2%;
+    }
+    .f_sitemap_wrap{
+        flex-direction: column;
+    }
+    .f_sitemap{
+        width: 100%;
+        flex-direction: column;
+    }
+    .f_sitemap ul{
+        padding: 0 0 20px 0;
+    }
 }

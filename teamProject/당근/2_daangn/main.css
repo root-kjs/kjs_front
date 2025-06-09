@@ -1,0 +1,110 @@
+/* 메인페이지 해더 */
+#header{
+    position: sticky;
+    top:0px;
+    padding: 10px 0;
+    background: #fff;
+    border-bottom: solid 1px rgba(0,0,0,.05);
+}
+.sticky_header{
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+img.header_logo{
+    margin-left: -5px;
+}
+.top_menu{
+    display: flex;
+    align-items: center;
+}
+.top_menu button{
+    font:500 14px/22px "Pretendard-Regular";
+    border: none;
+    background:transparent;
+    cursor: pointer;
+    margin-left: 10px;
+}
+button.app_download{
+    color: #fff;
+    padding: 5px 10px;
+    background:#f60;
+    border-radius:5px;
+}
+button.app_download:hover{
+    opacity: .7;
+}
+button.btn_area_select{
+    position: relative;
+    color: rgba(0,0,0,.9);
+    padding: 5px 10px 5px 33px;
+    background: rgba(0,0,0,.05);
+    border-radius:20px;
+    transition: .2s ease;
+    display: none;
+}
+button.btn_area_select:hover{
+    background: rgba(0,0,0,.08);
+}
+button.btn_area_select::before{
+    position: absolute;
+    top:6px;
+    left:10px;
+    content:"";
+    display: inline-block; 
+    width: 22px;
+    height: 18px;
+    background: url(img/icon_map.png) no-repeat;
+    background-size: 22px 18px;
+    opacity: .9;
+}
+button.btn_area_select::after{
+    content:"";
+    display: inline-block; 
+    width: 15px;
+    height: 15px;
+    background: url(img/icon_arrow_down.png) no-repeat 2px 2px;
+    background-size: contain;
+}
+button.btn_gnb{
+    font-size: 32px;
+    display: none;
+}
+button.btn_gnb{
+    font-size: 0;
+}
+button.btn_gnb::before{
+    display: inline-block; 
+    font-size: 34px;
+    content:"≡";s
+    opacity: .7;
+    margin-top: 10px;
+}
+
+/* ######## 메인페이지 해더 반응형 CSS ######## */
+@media (max-width: 1240px){
+    #header{
+        padding: 10px 5%;
+    }
+}
+@media (max-width: 992px){
+    #header{
+        padding: 10px 2%;
+    }
+    button.app_download{
+        display: none;
+    }
+    button.btn_area_select, button.btn_gnb{
+        display: inline-block;
+    }
+ }
+
+/* 메인페이지 > 본문 */
+ main#main_content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 0;
+ }
