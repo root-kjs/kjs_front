@@ -2,9 +2,9 @@
 #header{
     position: sticky;
     top:0px;
-    padding: 10px 0;
+    padding: 10px 10px;
     background: #fff;
-    border-bottom: solid 1px rgba(0,0,0,.05);
+    /* border-bottom: solid 1px rgba(0,0,0,.05); */
 }
 .sticky_header{
     max-width: 1240px;
@@ -13,15 +13,14 @@
     justify-content: space-between;
     align-items: center;
 }
-img.header_logo{
-    margin-left: -5px;
-}
+
 .top_menu{
     display: flex;
     align-items: center;
 }
+/* 메인페이지 top_menu */
 .top_menu button{
-    font:500 14px/22px "Pretendard-Regular";
+    font:600 14px/22px "Pretendard-Regular";
     border: none;
     background:transparent;
     cursor: pointer;
@@ -77,10 +76,11 @@ button.btn_gnb{
 }
 button.btn_gnb::before{
     display: inline-block; 
-    font-size: 34px;
-    content:"≡";s
+    font-weight: 400;
+    font-size: 35px;
+    content:"≡";
     opacity: .7;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 /* ######## 메인페이지 해더 반응형 CSS ######## */
@@ -88,10 +88,13 @@ button.btn_gnb::before{
     #header{
         padding: 10px 5%;
     }
+    img.header_logo{
+        margin-left: -7px;
+    }
 }
 @media (max-width: 992px){
     #header{
-        padding: 10px 2%;
+        padding: 10px 4%;
     }
     button.app_download{
         display: none;
@@ -100,11 +103,61 @@ button.btn_gnb::before{
         display: inline-block;
     }
  }
+ @media (max-width: 768px){
+    #header{
+        padding: 10px 3%;
+    }
+ }
 
 /* 메인페이지 > 본문 */
- main#main_content{
+ #main_content{
+    /* display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center; */
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 120px 0;
+    text-align: center;
+ }
+ /* 검색창/인기검색어 */
+ .search_wrap{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 120px 0;
  }
+
+ button.btn_area_select.dark{
+    color: #fff;
+    padding: 5px 10px 5px 33px;
+    display: inline-block;
+    background: rgba(0,0,0,.8);
+}
+button.btn_area_select:hover{
+    background: rgba(0,0,0,.08);
+}
+
+.search_box{
+
+}
+ul.popular_keyword{
+    display: flex;
+    justify-content: space-between;
+    font-size:14px;
+}
+ul.popular_keyword li a{
+    color: rgba(0,0,0,.4);
+}
+
+/* 카테고리 배너 */
+ul.category_banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* 동네명 링크 */
+.neighbor_area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
