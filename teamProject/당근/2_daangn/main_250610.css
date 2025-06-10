@@ -120,13 +120,33 @@ button.btn_gnb::before{
     padding: 120px 0;
     text-align: center;
  }
-.pr_message{ 
+ /* 검색창/인기검색어 */
+ .search_wrap{
     display: flex;
     justify-content: center;
     align-items: center;
+ }
+
+ button.btn_area_select.dark{
+    color: #fff;
+    padding: 5px 10px 5px 33px;
+    display: inline-block;
+    background: rgba(0,0,0,.8);
 }
-.pr_message svg{
-    margin-right: 5px;
+button.btn_area_select:hover{
+    background: rgba(0,0,0,.08);
+}
+
+.search_box{
+
+}
+ul.popular_keyword{
+    display: flex;
+    justify-content: space-between;
+    font-size:14px;
+}
+ul.popular_keyword li a{
+    color: rgba(0,0,0,.4);
 }
 
 /* 카테고리 배너 */
@@ -135,43 +155,9 @@ ul.category_banner{
     justify-content: center;
     align-items: center;
 }
-.category_banner li{
-    margin: 7px;
-}
-.category_banner li a{
-    display: flex;
-    flex-direction: column;
-    color: rgba(0,0,0,.9);
-    font:500 16px/20px "Pretendard-Regular"; 
-    background: #f3f4f5;
-    padding:15px 50px 15px 15px;
-    border-radius: 20px;
-    transition: .2s ease;
-    min-width: 114px;
-}
-.category_banner li a:hover{
-    background: #eaeaea;
-}
-.category_banner li a svg{
-    margin-bottom:30px;
-}
-
 /* 동네명 링크 */
 .neighbor_area{
     display: flex;
-    justify-content: flex-start;
-    max-width: 840px;
-    margin: 30px auto;
-    flex-wrap: wrap;
-}
-.neighbor_area li{
-     margin: 7px;
-}
-.neighbor_area li a{
-    display: inline-block;
-    color: rgba(0,0,0,.9);
-    font:500 14px/20px "Pretendard-Regular"; 
-    background: #f3f4f5;
-    padding:10px 15px;
-    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
 }
