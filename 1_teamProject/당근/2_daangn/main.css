@@ -67,6 +67,28 @@ button.btn_area_select::after{
     background: url(img/icon_arrow_down.png) no-repeat right 8px;
     background-size: 11px;
 }
+
+.btn_area_select.dark{
+    display: inline-block;
+    background:#2a3038;
+    color: #fff;
+    border: 0;
+    height: 48px;
+    padding: 3px 17px 3px 40px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-right: 10px;
+}
+button.btn_area_select.dark::before{
+    top:15px;
+    left:17px;
+    filter: invert(100%);
+}
+button.btn_area_select.dark::after{
+    filter: invert(100%);
+    background-position: right 6px;
+}
 button.btn_gnb{
     font-size: 32px;
     display: none;
@@ -82,30 +104,34 @@ button.btn_gnb::before{
     opacity: .7;
     margin-top: 15px;
 }
-
-/* ######## 메인페이지 해더 반응형 CSS ######## */
-@media (max-width: 1240px){
-    #header{
-        padding: 10px 5%;
-    }
+/* 검색창 */
+.search_wrap{
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
 }
-@media (max-width: 992px){
-    #header{
-        padding: 10px 4%;
-    }
-    button.app_download{
-        display: none;
-    }
-    button.btn_area_select, button.btn_gnb{
-        display: inline-block;
-    }
- }
- @media (max-width: 768px){
-    #header{
-        padding: 10px 3%;
-    }
- }
-
+.search_wrap{
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+}
+.search_box form{
+    display: flex;
+    /* align-items: center; */
+}
+.popular_keyword{
+    display: flex;
+    font:300 14px/20px "Pretendard-Regular";
+}
+.popular_keyword li{
+    padding: 6px;
+     color: rgba(0,0,0,.4);
+}
+.popular_keyword a{
+    display: inline-block;
+    color: rgba(0,0,0,.6);
+}
 /* 메인페이지 > 본문 */
  #main_content{
     /* display: flex;
@@ -114,23 +140,28 @@ button.btn_gnb::before{
     align-items: center; */
     max-width: 1240px;
     margin: 0 auto;
-    padding: 120px 0;
+    padding:50px 0 120px 0;
     text-align: center;
  }
 .pr_message{ 
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 130px 0 40px 0;
+    transition: .2s ease;
 }
 .pr_message svg{
     margin-right: 5px;
 }
-
+.pr_message br{
+    display: none;
+}
 /* 카테고리 배너 */
-ul.category_banner{
+.category_banner{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
 }
 .category_banner li{
     margin: 7px;
@@ -138,10 +169,11 @@ ul.category_banner{
 .category_banner li a{
     display: flex;
     flex-direction: column;
+    text-align: left;
     color: rgba(0,0,0,.9);
     font:500 16px/20px "Pretendard-Regular"; 
     background: #f3f4f5;
-    padding:15px 50px 15px 15px;
+    padding:15px;
     border-radius: 20px;
     transition: .2s ease;
     min-width: 114px;
@@ -172,3 +204,62 @@ ul.category_banner{
     padding:10px 15px;
     border-radius: 20px;
 }
+/* ######## 메인페이지 해더 반응형 CSS ######## */
+@media (max-width: 1240px){
+    #header{
+        padding: 10px 5%;
+    }
+    .category_banner li a{
+        min-width: 100px;
+    }
+}
+@media (max-width: 992px){
+    #header{
+        padding: 10px 4%;
+    }
+    button.app_download{
+        display: none;
+    }
+    button.btn_area_select, button.btn_gnb{
+        display: inline-block;
+    }
+    .category_banner{
+        flex-wrap: wrap;
+        width: 70%;
+        margin-left: 18%;
+        align-content: flex-start;
+        justify-content: flex-start;
+    }
+    .category_banner li a{
+        min-width: 114px;
+    }
+ }
+ @media (max-width: 768px){
+    #header{
+        padding: 10px 3%;
+    }
+    #main_content {
+        padding-bottom: 0px;
+    }
+    .pr_message{
+        justify-content: flex-start;
+        padding: 50px 0 0 3%;
+    }
+    .pr_message svg{
+        display: none;
+    }
+    .pr_message br{
+        display: block;
+    }
+    .category_banner{
+        width: 98%;
+        margin-left:2%;
+    }
+    .category_banner li{
+        /* min-width: auto; */
+        flex: 0 1 47%;
+    }
+    .neighbor_area{
+        max-width: 98%;
+    }
+ }
