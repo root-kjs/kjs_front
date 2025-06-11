@@ -3,6 +3,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    
 }
 
 li {
@@ -19,7 +20,44 @@ a {
     font-weight: 400;
     font-style: normal;
 }
+/* ================= 본문 ================= */
+#main {
+    display: flex;
+   max-width: 1240px;
+    margin: 0 auto;
+} /* 범위 설정 */
 
+/* ================= 본문 제목 ================= */
+#title {
+    display: flex;
+    max-width: 1240px;
+    margin: 0 auto;
+    margin-top: 30px;
+} /* 본문 제목 범위 설정 */
+
+.main_menu {
+    color: grey;
+    margin: 10px 0;
+    margin-left: 20px;
+    font: 'Pretendard-Regular';
+    font-weight: normal;
+} /* 제목 상단 회색 글씨 */
+
+.main_menu > span {
+    font-weight: bold;
+} /* 제목 상단 회색 글씨 (일부 볼드체) */
+
+.main_title {
+    font: 'Pretendard-Regular';
+    margin-bottom: 20px;
+    margin-left: 20px;
+} /* 제목 하단 큰 글씨 */
+
+/* ================= 본문 컨텐츠 ================= */
+#contents {
+    width: 1000px;
+    margin: 20px auto;
+} /* 본문 범위 조절 및 정렬 */
 /* ================= 본문 사이드바 (width: 240px) ================= */
 #sidebar {
     width: 240px;
@@ -34,7 +72,7 @@ a {
 
 /* ================= 사이드바 버튼 설정 ================= */
 .checkbox_filter {
-    margin: 25px 0;
+    margin: 3px 0;
     appearance: none;
     border: max(1px, 1px) solid lightgray;
     border-radius: 5px;
@@ -74,6 +112,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 25px;
 } /* 필터 탭 정렬 */
 
 .reset_filter {
@@ -88,11 +127,15 @@ a {
     align-items: center;
 } /* 체크박스 정렬 */
 
-.checkbox > span {
+.checkbox span {
     margin-left: 6px;
 } /* 체크박스, 글자 간격 조절 */
 
 /* ================= 사이드바: 위치 탭 ================= */
+.location {
+    padding-bottom: 25px;
+}
+
 .location > p {
     padding-bottom: 15px;
 } /* 위치 글자 간격 조절 */
@@ -130,6 +173,15 @@ a {
 .price {
     margin-top: 25px;
 } /* 카테고리, 가격 탭 간격 조절 */
+
+.weekend {
+    margin-bottom: 25px;
+}
+
+.work_time {
+    color: grey;
+    font-size: 12px;
+}
 
 .button_price {
     padding: 7px 15px;

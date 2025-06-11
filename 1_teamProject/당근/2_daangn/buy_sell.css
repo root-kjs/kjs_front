@@ -3,7 +3,6 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    
 }
 
 li {
@@ -14,22 +13,50 @@ a {
     text-decoration: none;
 }
 
-/* ================= 본문 사이드바 (width: 240px) ================= */
-#sidebar {
-    width: 240px;
-    margin: 20px;
-} /* 사이드바 기본 설정 */
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
 
 /* ================= 본문 ================= */
 #main {
     display: flex;
-    width: 1280px;
+    width: 1240px;
     margin: 0 auto;
 } /* 범위 설정 */
 
+/* ================= 본문 제목 ================= */
+#title {
+    display: flex;
+    flex-direction: column;
+    width: 1240px;
+    margin: 0 auto;
+    margin-top: 80px;
+} /* 본문 제목 범위 설정 */
+
+.main_menu {
+    color: grey;
+    margin: 10px 0;
+    margin-left: 20px;
+    font: 'Pretendard-Regular';
+    font-weight: normal;
+} /* 제목 상단 회색 글씨 */
+
+.main_menu > span {
+    font-weight: bold;
+} /* 제목 상단 회색 글씨 (일부 볼드체) */
+
+.main_title {
+    font: 'Pretendard-Regular';
+    margin-bottom: 20px;
+    margin-left: 20px;
+} /* 제목 하단 큰 글씨 */
+
 /* ================= 본문 컨텐츠 ================= */
 #contents {
-    width: 1040px;
+    width: 1000px;
     margin: 20px auto;
 } /* 본문 범위 조절 및 정렬 */
 
@@ -43,6 +70,7 @@ a {
     width: 220px;
     margin: 10px;
     padding-bottom: 15px;
+    cursor: pointer;
 } /* 아이템 크기 및 범위 조절 */
 
 .image_box {
@@ -65,6 +93,7 @@ a {
 } /* 아이템 이미지 호버 시 애니메이션 적용 */
 
 .item_name {
+    font-size: 15px;
     margin-top: 7px;
 } /* 아이템 이름 간격 조절 */
 
@@ -80,7 +109,7 @@ a {
 } /* 아이템 위치 및 올린 시간 글자색 및 폰트 크기, 간격 조절 */
 
 .more_button {
-    width: 1000px;
+    width: 960px;
     background-color: #f3f4f5;
     border: none;
     border-radius: 7px;
@@ -94,3 +123,45 @@ a {
 .more_button:hover {
     background-color: #e3e4e5;
 } /* 더보기 버튼 호버 시 색상 변경 */
+
+/* ================= 하단 이미지 ================= */
+#bottom_banner {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 360px;
+    background-color: #fff2ec;
+    margin-top: 60px;
+} /* 하단 이미지 간격 조절 */
+
+#banner_wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1240px;
+    margin: 0 auto;
+}
+
+.banner_top {
+    font: 'Pretendard-Regular';
+    font-size: 32px;
+    font-weight: bold;
+    color: orangered;
+}
+
+.banner_bottom {
+    font: 'Pretendard-Regular';
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.banner_icon {
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.banner_image {
+    height: 360px;
+}

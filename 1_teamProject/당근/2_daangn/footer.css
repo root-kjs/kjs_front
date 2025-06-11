@@ -11,7 +11,6 @@ li{ list-style: none; }
     font-style: normal;
 }
 
-
 /* [공통] #footer */
 #footer{
     max-width: 1240px;
@@ -30,6 +29,11 @@ li{ list-style: none; }
     display: inline-block;
     margin: 17px 12px 25px 0;
 }
+
+/* .clear{ 
+    height: 10px;
+    background-color: red;
+} */
 /* 푸터 사이트맵 */
 .f_sitemap{
     display: flex;

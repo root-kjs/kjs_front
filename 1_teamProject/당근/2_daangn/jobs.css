@@ -1,7 +1,7 @@
 .job_list {
-  max-width: 1000px;
+  /* max-width: 974px; */
+  /* max-height: 133px; */
   margin: 0 auto;
-  font-family: "Apple SD Gothic Neo", sans-serif;
   align-items: self-end ;
 }
 
@@ -11,19 +11,19 @@
 }
 
 .title {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   margin-bottom: 4px;
 }
 
 .location_time {
-  font-size: 13px;
+  font-size: 14px;
   color: #777;
   margin-bottom: 6px;
 }
 
 .wage {
-  font-size: 14px;
+  font-size: 16 px;
   color: #444;
 }
 
@@ -32,19 +32,26 @@
   color: #222;
 }
 
-.badge {
-  display: inline-block;
-  background-color: #00c471;
-  color: white;
-  font-size: 12px;
-  padding: 2px 6px;
-  border-radius: 4px;
-  margin-top: 6px;
+.smallbox {
+  background-color: #f3f4f5;
+  color: #555d6d;
+  padding: 0px 6px;
+  max-width: 55px;
+  font-size: 11px;
+  max-height: 20px;
+  font-weight: bold;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 2px;
+  display: flex;
+  justify-content: center;
 }
 
 .job_image img {
-  width: 120px;
-  height: auto;
+  width: 160px;
+  height: 120px;
   border-radius: 8px;
   object-fit: cover;
 }
@@ -56,4 +63,9 @@
   gap: 12px;
   border-bottom: 1px solid #eee;
   padding: 16px 0;
+}
+
+/* 김진숙 코드 추가 수정  */
+#title{
+  padding: 30px 0;
 }
