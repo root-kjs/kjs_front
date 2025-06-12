@@ -71,6 +71,16 @@ position: fixed;
     font-weight:500
 }
 
+.main_menu > li:nth-child(2) > a::after, .main_menu > li:nth-child(4) > a::after{
+    content:"";
+    display: inline-block; 
+    width: 15px;
+    height: 15px;
+    background: url(img/icon_arrow_down.png) no-repeat right 8px;
+    background-size: 11px;
+    opacity: .5;
+}
+
 .sub_menu{
     display: none;
     position: absolute;
