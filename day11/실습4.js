@@ -43,9 +43,6 @@ console.log( heightM );
 let BMI = weight / ( heightM * heightM );
 console.log( ` BMI지수 : ${ BMI } ` );
 
-let BMI = weight / heightM * heightM;
-
-console.log( ` BMI지수 : ${ BMI } ` );
 
 // 문제 5: 관리자 확인
 // 아이디와 이메일을 prompt 함수로 입력받습니다. 아이디가 'admin'이거나 또는 이메일이 'admin@test.com'이면 '관리자'를, 그렇지 않으면 '일반 사용자'를 콘솔에 출력하는 프로그램을 작성하시오.
