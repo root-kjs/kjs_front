@@ -99,4 +99,4 @@ console.log( ` 전체 할일: [ ${ todoList } ]` );
 
 let waitingList = ['김민준', '이서연', '박도윤', '최지우'] ;
 
-console.log( ` 마지막 대기자는 ${ waitingList[3] }입니다.` );
+console.log( ` 마지막 대기자는 ${ waitingList[waitingList.length-1] }입니다.` );
