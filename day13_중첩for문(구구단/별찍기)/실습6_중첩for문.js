@@ -218,44 +218,44 @@ for 반복문을 사용하여 6개의 좌석을 모두 출력합니다.
 예약석 빈좌석
 */
 
-let seatStatus = ['빈좌석', '예약석', '예약석', '빈좌석', '예약석', '빈좌석'];
-let html2 = [];
-for( i = 0; i <= seatStatus.length -1; i++ ){
-    let seat = seatStatus[i];
-    if( i % 2 === 0 ){
-     html2 += `<div>`
-        if( seat === '빈좌석' ){
-            html2 += `<span  style='color: blue;'> ${ seat }  </span>`;
-        }else{
-            html2 += `<span style='color: red;'> ${ seat } </span>`;
-        }
-    }else{
-        if( seat === '빈좌석' ){
-            html2 += `<span  style='color: blue;'> ${ seat }  </span>`;
-        }else{
-            html2 += `<span style='color: red;'> ${ seat } </span>`;
-        }
-        html2 += `</div>`
-    }
-}
-document.write( html2 );
+// let seatStatus = ['빈좌석', '예약석', '예약석', '빈좌석', '예약석', '빈좌석'];
+// let html2 = [];
+// for( i = 0; i <= seatStatus.length -1; i++ ){
+//     let seat = seatStatus[i];
+//     if( i % 2 === 0 ){
+//      html2 += `<div>`
+//         if( seat === '빈좌석' ){
+//             html2 += `<span  style='color: blue;'> ${ seat }  </span>`;
+//         }else{
+//             html2 += `<span style='color: red;'> ${ seat } </span>`;
+//         }
+//     }else{
+//         if( seat === '빈좌석' ){
+//             html2 += `<span  style='color: blue;'> ${ seat }  </span>`;
+//         }else{
+//             html2 += `<span style='color: red;'> ${ seat } </span>`;
+//         }
+//         html2 += `</div>`
+//     }
+// }
+// document.write( html2 );
 
-// 더 나은 답 : 2개로 반복되는 단순 if 조건문은 삼항식으로 간단히 변수 처리 가능하고 
-// 반복되는 구문도 변수가능하니 소스코드 줄여서 사용하자!!!!
-// let color = seat === '빈좌석' ? 'blue;' : 'red;'
-// let span = `<span  style='color: ${ color }'> ${ seat }  </span>`
-html2 ='==========================';
-for( i = 0; i <= seatStatus.length -1; i++ ){
-    let seat = seatStatus[i];
-    let color = seat === '빈좌석' ? 'blue;' : 'red;'
-    let span = `<span  style='color: ${ color }'> ${ seat }  </span>`
-    if( i % 2 === 0 ){
-     html2 += `<div> ${ span } `;
-    }else{
-        html2 += ` ${ span } </div>`
-    }
-}
-document.write( html2 );
+// // 더 나은 답 : 2개로 반복되는 단순 if 조건문은 삼항식으로 간단히 변수 처리 가능하고 
+// // 반복되는 구문도 변수가능하니 소스코드 줄여서 사용하자!!!!
+// // let color = seat === '빈좌석' ? 'blue;' : 'red;'
+// // let span = `<span  style='color: ${ color }'> ${ seat }  </span>`
+// html2 ='==========================';
+// for( i = 0; i <= seatStatus.length -1; i++ ){
+//     let seat = seatStatus[i];
+//     let color = seat === '빈좌석' ? 'blue;' : 'red;'
+//     let span = `<span  style='color: ${ color }'> ${ seat }  </span>`
+//     if( i % 2 === 0 ){
+//      html2 += `<div> ${ span } `;
+//     }else{
+//         html2 += ` ${ span } </div>`
+//     }
+// }
+// document.write( html2 );
 
 
 // 문제 10: 주차 요금 정산하기
@@ -282,3 +282,21 @@ document.write( html2 );
 // 기본 시간(30분)을 초과한 시간을 계산하고, parseInt() 함수를 사용하여 10분 단위로 버림 처리하면 추가 요금 단위를 쉽게 계산할 수 있습니다.
 // 추가 요금 단위 계산식:parseInt( (총 주차시간 - 30) / 10 )
 // 계산 예시:65분 주차 시 parseInt( (65 - 30) / 10 )는 parseInt(3.5)가 되어 결과는 3이 됩니다. 따라서 추가 요금은 3 * 500원으로 계산됩니다.
+
+let carNumbers = ['210어7125', '142가7415', '888호8888', '931나8234'];
+let usageMinutes = [65, 30, 140, 420];
+
+let htmlParking = [];
+
+for( i = 0; i <= carNumbers.length -1; i++){
+    let car = carNumbers[i];
+    let time = usageMinutes[i];
+
+    let addCharge = parseInt((time - 30) / 10) * 500;
+    let amount = 1000 + addCharge < 20000 ? 1000 + addCharge : 20000; // 기본 요금 1,000원, 최대요금 20,000원원
+    let output = `<div>${ car }: ${ time }분 주차, 최종 요금: ${ amount }원</div>`
+    
+    htmlParking += ` ${ output } `;
+}
+
+document.write( htmlParking );
