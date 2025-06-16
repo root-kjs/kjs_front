@@ -181,44 +181,82 @@ for 반복문을 사용하여 모든 영화를 순회합니다.
 청설            ★★★★★★☆☆☆☆
 */
 
-let movieNames = ['히든페이스', '위키드', '글래디에이터2', '청설'];
-let movieRatings = [8, 4, 7, 6];
+// let movieNames = ['히든페이스', '위키드', '글래디에이터2', '청설'];
+// let movieRatings = [8, 4, 7, 6];
 
-let html = []; // html 출력 배열 변수 정의
-//1. 일단 영화명과 평점을 추출한다
-for( index = 0; index <= movieNames.length - 1; index++ ){
-    html += ` <div> <span style="width:100px; display:inline-block;">${ movieNames[index] } </span>`
+// let html = []; // html 출력 배열 변수 정의
+// //1. 일단 영화명과 평점을 추출한다
+// for( index = 0; index <= movieNames.length - 1; index++ ){
+//     html += ` <div> <span style="width:100px; display:inline-block;">${ movieNames[index] } </span>`
+//     let black = movieRatings[index]
+//     for( j = 0; j <= black; j++ ){
+//         html += ` <span> ★  `;
+//     }
+//     for( let star = 0; star <= 10 - black; star++ ){
+//         html += `  ☆ </span> `;
+//     }
+// }
+// html += ` </div> `
+// document.write( html )
 
-    // for( ){
+/* --------------------------------------------------------------------------------------
+문제 9: 좌석 예약 상태 표시하기
+총 6개의 좌석 상태 정보가 담긴 배열을 이용하여, 좌석 배치도와 상태를 HTML에 출력하는 프로그램을 작성하시오.
+(1). 초기 데이터
+좌석의 상태는 '빈좌석' 또는 '예약석'으로 구성됩니다.
+let seatStatus = ['빈좌석', '예약석', '예약석', '빈좌석', '예약석', '빈좌석'];
+(2). 구현 조건
+for 반복문을 사용하여 6개의 좌석을 모두 출력합니다.
+각 좌석은 하나의 <div> 태그로 표시합니다.
+좌석 상태에 따라 <div> 태그에 CSS 색상을 다르게 적용합니다.
+'빈좌석': color: blue;
+'예약석': color: red;
+좌석은 2칸씩 3줄 형태로 배치합니다.
+(3). 출력 예시 (HTML)
+빈좌석 예약석   
+예약석 빈좌석
+예약석 빈좌석
+*/
 
-    // }
-    // html += ` <span> ${ movieRatings[index] } </span> `
-
-
-    html += ` </div> `
+let seatStatus = ['빈좌석', '예약석', '예약석', '빈좌석', '예약석', '빈좌석'];
+let html2 = [];
+for( i = 0; i <= seatStatus.length -1; i++ ){
+    let seat = seatStatus[i];
+    if( i % 2 === 0 ){
+     html2 += `<div>`
+        if( seat === '빈좌석' ){
+            html2 += `<span  style='color: blue;'> ${ seat }  </span>`;
+        }else{
+            html2 += `<span style='color: red;'> ${ seat } </span>`;
+        }
+    }else{
+        if( seat === '빈좌석' ){
+            html2 += `<span  style='color: blue;'> ${ seat }  </span>`;
+        }else{
+            html2 += `<span style='color: red;'> ${ seat } </span>`;
+        }
+        html2 += `</div>`
+    }
 }
+document.write( html2 );
 
-document.write( html )
+// 더 나은 답 : 2개로 반복되는 단순 if 조건문은 삼항식으로 간단히 변수 처리 가능하고 
+// 반복되는 구문도 변수가능하니 소스코드 줄여서 사용하자!!!!
+// let color = seat === '빈좌석' ? 'blue;' : 'red;'
+// let span = `<span  style='color: ${ color }'> ${ seat }  </span>`
+html2 ='==========================';
+for( i = 0; i <= seatStatus.length -1; i++ ){
+    let seat = seatStatus[i];
+    let color = seat === '빈좌석' ? 'blue;' : 'red;'
+    let span = `<span  style='color: ${ color }'> ${ seat }  </span>`
+    if( i % 2 === 0 ){
+     html2 += `<div> ${ span } `;
+    }else{
+        html2 += ` ${ span } </div>`
+    }
+}
+document.write( html2 );
 
-
-
-
-// 문제 9: 좌석 예약 상태 표시하기
-// 총 6개의 좌석 상태 정보가 담긴 배열을 이용하여, 좌석 배치도와 상태를 HTML에 출력하는 프로그램을 작성하시오.
-// (1). 초기 데이터
-// 좌석의 상태는 '빈좌석' 또는 '예약석'으로 구성됩니다.
-// let seatStatus = ['빈좌석', '예약석', '예약석', '빈좌석', '예약석', '빈좌석'];
-// (2). 구현 조건
-// for 반복문을 사용하여 6개의 좌석을 모두 출력합니다.
-// 각 좌석은 하나의 <div> 태그로 표시합니다.
-// 좌석 상태에 따라 <div> 태그에 CSS 색상을 다르게 적용합니다.
-// '빈좌석': color: blue;
-// '예약석': color: red;
-// 좌석은 2칸씩 3줄 형태로 배치합니다.
-// (3). 출력 예시 (HTML)
-// 빈좌석 예약석   
-// 예약석 빈좌석
-// 예약석 빈좌석
 
 // 문제 10: 주차 요금 정산하기
 // 차량별 주차 시간 데이터가 주어졌을 때, 아래의 요금 규정에 따라 각 차량이 지불해야 할 최종 주차 요금을 계산하여 HTML에 출력하는 프로그램을 작성하시오.
