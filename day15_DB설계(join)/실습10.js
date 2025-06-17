@@ -68,10 +68,9 @@ for (let index = 0; index <= students.length - 1; index++) {
     // (3) 학생별 html 반복 구간 돌리기
     html += `
         <h3 style="border-top:solid 1px #ddd; padding-top:10px">${student.sName} (${student.sMajor}과) </h3>
-        <ul> ${ className ? className : '수강내역이 없습니다.'} </ul> 
+        <ul> ${ className ? className : '<li>수강내역이 없습니다.</li>'} </ul> 
     `
 }//학생 for1 end
-html += ` `;
 
 //(4) HTML 최종출력
 document.write(html);
