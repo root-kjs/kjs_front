@@ -15,30 +15,29 @@
         * 웹페이지에 다음과 같은 형식으로 각 유저의 정보가 표시되어야 합니다.
         * 단  HTML 와 CSS 구성/코드 는 달라도 됩니다. 
 */
-
-// 각 데이터를 배열과 객체로 정의한다.
-// 학생 테이블
+// (1) 각 데이터를 배열과 객체로 정의한다.
+// 학생 배열
 const students = [{ sid: 10, sName: '유재석', sMajor: '예능' },
 { sid: 11, sName: '강호동', sMajor: '씨름' },
 { sid: 12, sName: '신동엽', sMajor: '개그' },
 { sid: 13, sName: '한석봉', sMajor: '서예' }]; // 수강신청 안한 학생 객체 추가!
-// 과목 테이블
+// 과목 배열
 const subjects = [{ cid: 1, className: '수학', teacher: '김현수' },
 { cid: 2, className: '영어', teacher: '홍길동' },
 { cid: 3, className: '과학', teacher: '유관순' }];
-// 수강신청 테이블
+// 수강신청 배열
 const attends = [{ aid: 1, sid: 10, cid: 1, grade: 'F' },
 { aid: 2, sid: 10, cid: 2, grade: 'A' },
 { aid: 3, sid: 12, cid: 3, grade: 'F' },
 { aid: 4, sid: 11, cid: 1, grade: 'B' },
 { aid: 5, sid: 12, cid: 2, grade: 'C' },];
 
-/* (1) HTML 출력한다. 
+/* (2) HTML 출력에 필요한 데이터 변수를 선언하고 해당 배열을 순회
 출력되는 정보는 학생명, 과목명, 성적(F 이면 'Fail' 출력 , F 가 아니면 'Pass' 출력)
 */
 let html = '';
 html += ` <h1>학생별 성적표</h1><ul> `;
-// 학생 테이블
+// 학생 배열
 for (let index = 0; index <= students.length - 1; index++) {
     // 출력 데이터 변수 초기화/선언
     let student = students[index];
@@ -52,7 +51,7 @@ for (let index = 0; index <= students.length - 1; index++) {
             let subject = subjects[index2];
             // 학생의 학번과 수강신청의 학번이 일치하면
              if (student.sid == attend.sid) { 
-                // 과목의 학번과 수강신청의 학번이 일치하면
+                // 과목의 과목코드와 수강신청의 과몯코드가 일치하면
                 if (subject.cid == attend.cid) { 
                     fail = attend.grade == 'F' ? '<span style="color:red">Fail</span>' : '<span style="color:blue">Pass</span>';
                     className += ` ${ subject.className } (${attend.grade}, ${fail}) `
@@ -61,12 +60,13 @@ for (let index = 0; index <= students.length - 1; index++) {
         } // 과목 for3 end
     
     } // 수강신청 for2 end
-    // 학생별 반복 html 구간 돌리기
+    // (3) 학생별 html 반복 구간 돌리기
     html += `<li style="border-top:solid 1px #ddd; padding:10px 0">
         <div> <b>${student.sName}</b>(${student.sMajor} 전공) </div>
         <span> ${ className ? className : '수강내역이 없습니다.'} </span> 
     </li>`
 }//학생 for1 end
 html += ` </ul>`;
-// HTML 출력
+
+//(4) HTML 최종출력
 document.write(html);
