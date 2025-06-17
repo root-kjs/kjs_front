@@ -3,28 +3,52 @@
 prompt를 세 번 사용하여 사용자로부터 '제품명', '가격', '제조사'을 순서대로 입력받습니다. 
 입력받은 정보로 하나의 product 객체를 생성하고, 생성된 객체를 콘솔에 출력하시오.
 ---------------------------------------------------------------------------*/
-let produt = prompt( '제품명' );
-let price = Number(prompt( '가격' ));
-let brand = prompt( '제조사' );
+// let produt = prompt( '제품명' );
+// let price = Number(prompt( '가격' ));
+// let brand = prompt( '제조사' );
 
-console.log( { produt, price, brand } )
+// console.log( { produt, price, brand } )
 
 /* 문제 2: prompt로 회원 가입 및 아이디 중복 확인 기능 구현
 prompt를 세 번 사용하여 사용자로부터 '아이디', '비밀번호', '이름'을 순서대로 입력받습니다.
 입력받은 정보로 하나의 member 객체를 생성하고, members 배열에 저장하여 배열을 콘솔에 출력하시오.
-단] 입력받은 아이디가 이미 배열에 존재하면 '존재하는 아이디 입니다'를 출력하고 배열에 등록하지 않습니다.
+단] 입력받은 아이디가 이미 배열에 존재하면 '존재하는 아이디 입니다'를 출력하고 배열에 등록하지 않습니다. --> 유효성 검사
 const members = [
   { id: 'user1', password: 'pass1', name: '사용자1' },
   { id: 'user2', password: 'pass2', name: '사용자2' },
 ];
 ---------------------------------------------------------------------------*/
-let id = prompt( '아이디' );
-let pw = Number(prompt( '비밀번호' ));
-let name = prompt( '이름' );
+// ★★★★ 문제 풀이의 순서도를 반/드/시/ 작성할 것!!!! ★★★★
+// 1. prompt를 세 번 사용하여 사용자로부터 '아이디', '비밀번호', '이름'을 순서대로 입력
+// let id = prompt( '아이디' );
+// let password = prompt( '비밀번호' );
+// let name = prompt( '이름' );
 
-let member = { id, pw, name };
+// const members = [
+//   { id: 'user1', password: 'pass1', name: '사용자1' },
+//   { id: 'user2', password: 'pass2', name: '사용자2' },
+// ];
 
+// const menber = { id, password, name };
+// // console.log( menber ); 
+// // 입력받은 정보로 하나의 member 객체를 생성하고, members 배열에 저장하여 배열을 콘솔에 출력하시오.
+// // 입력받은 아이디가 이미 배열에 존재하면 '존재하는 아이디 입니다'를 출력하고 배열에 등록하지 않습니다
 
+// let idCheck = false;
+// for( i = 0; i <= members.length - 1; i++ ){
+//   let member = members[i];
+//   if( member.id == id ){
+//     idCheck = true;
+//     break;
+//   }
+// } //for end
+
+// if( idCheck == false ){
+//   members.push( menber );
+//   console.log( members );
+// }else{
+//   alert('존재하는 아이디입니다.')
+// }
 
 /* 문제 3: 객체 배열의 속성 값 평균 구하기
 scores 배열에 담긴 모든 학생의 수학(math) 점수 평균을 계산하여 콘솔에 출력하시오.
@@ -34,6 +58,21 @@ const scores = [
   { name: 'C', math: 76, science: 78 }
 ];
 ---------------------------------------------------------------------------*/
+// const scores = [
+//   { name: 'A', math: 80, science: 92 },
+//   { name: 'B', math: 95, science: 88 },
+//   { name: 'C', math: 76, science: 78 }
+// ];
+
+// let sumMath = 0;
+// for( i = 0 ; i <= scores.length - 1; i++ ){
+//   let student = scores[i];
+//   //console.log(student.math)
+//   sumMath += student.math;
+// }
+
+// let avg = sumMath / scores.length
+// console.log( avg ); 
 
 
 /* 문제 4: 특정 조건을 만족하는 객체 찾기
@@ -46,6 +85,27 @@ const products = [
 ];
 ---------------------------------------------------------------------------*/
 
+// const products = [
+//   { id: 1, name: '사과' },
+//   { id: 2, name: '바나나' },
+//   { id: 3, name: '포도' },
+//   { id: 4, name: '딸기' }
+// ];
+
+// let idCheck = false;
+// let index;
+// for( i = 0; i <= products.length - 1; i++){
+//   let product = products[i];
+//   if(  product.id  === 3 ){
+//     idCheck = true;
+//     console.log( product );
+//     break;
+//   } 
+// } // for end
+
+// if( idCheck == false ){
+//   console.log( '상품을 찾을 수 없습니다.' );
+// }
 
 
 /* 문제 5: 객체 배열 필터링하기
@@ -57,7 +117,22 @@ const users = [
   { id: 4, name: '유저4', isActive: false }
 ];
 ---------------------------------------------------------------------------*/
-
+// const users = [
+//   { id: 1, name: '유저1', isActive: true },
+//   { id: 2, name: '유저2', isActive: false },
+//   { id: 3, name: '유저3', isActive: true },
+//   { id: 4, name: '유저4', isActive: false }
+// ];
+// //isActive가 true인 사용자들만으로 구성된 새로운 배열 activeUsers를 만들고, 이 배열을 콘솔에 출력하시오
+// const activeUsers = [];
+// for( i = 0; i <= users.length - 1; i++){
+//   let user = users[i];
+//   console.log( user.isActive );
+//   if( user.isActive == true ){
+//       activeUsers.push(user);
+//   }
+// } // for end
+//  console.log(  activeUsers );
 
 
 /* 문제 6: 객체 배열 데이터 변환하기
@@ -68,7 +143,19 @@ const movies = [
   { title: '매트릭스', director: '워쇼스키 자매' }
 ];
 ---------------------------------------------------------------------------*/
+// const movies = [
+//   { title: '인셉션', director: '크리스토퍼 놀란' },
+//   { title: '기생충', director: '봉준호' },
+//   { title: '매트릭스', director: '워쇼스키 자매' }
+// ];
 
+// const movieTitles = [];
+// for( i = 0; i <= movies.length -1; i++ ){
+//   let movie = movies[i];
+//   //console.log( movie.title )
+//   movieTitles.push(movie.title) 
+// }
+// console.log( movieTitles )
 
 /* 문제 7: 데이터 그룹화하기
 다음 team 배열을 department를 기준으로 그룹화하여, 아래 result와 같은 형태로 만드시오.
@@ -84,6 +171,37 @@ const team = [
 //   '기획팀': ['영희', '지혜']
 // }
 ---------------------------------------------------------------------------*/
+
+const team = [
+  { name: '철수', department: '개발팀' },
+  { name: '영희', department: '기획팀' },
+  { name: '민수', department: '개발팀' },
+  { name: '지혜', department: '기획팀' }
+];
+
+// team.department
+
+const departments = {  };
+
+// for( i = 0; i <= team.length -1; i++){
+//   let person = team[i];
+
+//   console.log(person.department)
+
+//   // if( person.department == '개발팀' ){
+//   //   departments.개발팀 += person.name;
+    
+//   // }
+// }
+departments.개발팀 = true;
+console.log( departments )
+
+departments['개발팀']=([])
+console.log( departments )
+
+
+
+
 
 /* 문제 8: 장바구니 총액 계산하기
 고객의 장바구니 정보를 담은 cart 배열과 상품 정보를 담은 productsInfo 배열이 있습니다.
