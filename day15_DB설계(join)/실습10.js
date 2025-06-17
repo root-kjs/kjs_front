@@ -16,59 +16,53 @@
         * 단  HTML 와 CSS 구성/코드 는 달라도 됩니다. 
 */
 // (1) 각 데이터를 배열과 객체로 정의한다.
-// 학생 배열
+// 1.학생 배열
 const students = [{ sid: 10, sName: '유재석', sMajor: '예능' },
 { sid: 11, sName: '강호동', sMajor: '씨름' },
 { sid: 12, sName: '신동엽', sMajor: '개그' },
 { sid: 13, sName: '한석봉', sMajor: '서예' }]; // 수강신청 안한 학생 객체 추가!
-// 과목 배열
+// 2.과목 배열
 const subjects = [{ cid: 1, className: '수학', teacher: '김현수' },
 { cid: 2, className: '영어', teacher: '홍길동' },
 { cid: 3, className: '과학', teacher: '유관순' }];
-// 수강신청 배열
+// 3.수강신청 배열
 const attends = [{ aid: 1, sid: 10, cid: 1, grade: 'F' },
 { aid: 2, sid: 10, cid: 2, grade: 'A' },
 { aid: 3, sid: 12, cid: 3, grade: 'F' },
 { aid: 4, sid: 11, cid: 1, grade: 'B' },
-{ aid: 5, sid: 12, cid: 2, grade: 'C' },];
+{ aid: 5, sid: 12, cid: 2, grade: 'C' }];
 
-/* (2) HTML 출력에 필요한 데이터 변수를 선언하고 해당 배열을 순회
+/* (2) HTML 출력에 필요한 데이터 변수를 선언하고 관련련 배열을 순회
 출력되는 정보는 학생명, 과목명, 성적(F 이면 'Fail' 출력 , F 가 아니면 'Pass' 출력)*/
-// html 영역 그릴 변수 선언
-let html = '';
-html += ` <h1>학생별 성적 대시보드</h1> `;
-// 학생 배열 순회
-for (let index = 0; index <= students.length - 1; index++) {
-    let student = students[index];
+let html = ` <h1>학생별 성적 대시보드</h1> `; // html 영역 그릴 변수 선언
 
-    // html 출력 데이터 변수 초기화/선언
-    let className = '';
-    let fail = '';
-    // 수강신청 배열 순회
-    for (let index1 = 0; index1 <= attends.length - 1; index1++) {
+for (let index = 0; index <= students.length - 1; index++) { // 1.학생 배열 순회
+    let student = students[index]; // 학생 객체 1개씩 조회
+    let className = ''; // html 출력 데이터 변수 초기화/선언
+    let fail = ''; 
+    
+    for (let index1 = 0; index1 <= attends.length - 1; index1++) { // 2.수강신청 배열 순회
         let attend = attends[index1];
-       // 과목 배열 순회
-        for (let index2 = 0; index2 <= subjects.length - 1; index2++) {
+
+        for (let index2 = 0; index2 <= subjects.length - 1; index2++) { // 3.과목 배열 순회
             let subject = subjects[index2];
-            // 학생 객체의 학번과 수강신청 객체의 학번이 일치하면
-             if (student.sid == attend.sid) { 
-                // 과목 객체의 과목코드와 수강신청객체의 과목목코드가 일치하면
-                if (subject.cid == attend.cid) { 
+
+             if (student.sid == attend.sid) { // 학생 객체의 학번과 수강신청 객체의 학번이 일치하면
+                
+                if (subject.cid == attend.cid) { // 과목 객체의 과목코드와 수강신청객체의 과목목코드가 일치하면
                     fail = attend.grade == 'F' ? '<span style="color:red">Fail</span>' : '<span style="color:blue">Pass</span>';
                     className += 
                     `<li> 
                         <b>${ subject.className } (${ subject.teacher } 강사)</b><br/>
-                        성적(학점): ${attend.grade}<br/>
-                        이수 여부 : ${fail} <br/>
+                        학점 : ${attend.grade} <br/> 이수여부 : ${fail} 
                     </li>`;
                 }
             }
-        } // 과목 for3 end
-    } // 수강신청 for2 end
-    // (3) 학생별 html 출력 데이터 반복 구간 돌리기
+        } // 3.과목배열 for3 end
+    } // 2.수강신청 배열 for2 end
+    //(3) 학생별 html 출력 데이터 반복 구간
     html += ` <h3 style="border-top:solid 1px #ddd; padding-top:10px">${student.sName} (${student.sMajor}과)</h3>
               <ul> ${ className ? className : '<li>수강내역이 없습니다.</li>'} </ul> `;
-}//학생 for1 end
+}// 1.학생 배열 for1 end
 
-//(4) HTML 최종출력
-document.write(html);
+document.write(html); //(4) HTML 최종출력
