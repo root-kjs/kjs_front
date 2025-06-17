@@ -16,13 +16,13 @@
         * 단  HTML 와 CSS 구성/코드 는 달라도 됩니다. 
 */
 
-// 각 테이블을 객체로 정의한다.
+// 각 데이터를 배열과 객체로 정의한다.
 // 학생 테이블
 const students = [{ sid: 10, sName: '유재석', sMajor: '예능' },
 { sid: 11, sName: '강호동', sMajor: '씨름' },
 { sid: 12, sName: '신동엽', sMajor: '개그' },
 { sid: 13, sName: '한석봉', sMajor: '서예' }]; // 수강신청 안한 학생 객체 추가!
-// 과목목 테이블
+// 과목 테이블
 const subjects = [{ cid: 1, className: '수학', teacher: '김현수' },
 { cid: 2, className: '영어', teacher: '홍길동' },
 { cid: 3, className: '과학', teacher: '유관순' }];
@@ -33,25 +33,26 @@ const attends = [{ aid: 1, sid: 10, cid: 1, grade: 'F' },
 { aid: 4, sid: 11, cid: 1, grade: 'B' },
 { aid: 5, sid: 12, cid: 2, grade: 'C' },];
 
-
-/* (1) HTML 출력한다. 출력되는 정보는 학생명, 과목명, 성적(F 이면 'Fail' 출력 , F 가 아니면 'Pass' 출력)*/
-
+/* (1) HTML 출력한다. 
+출력되는 정보는 학생명, 과목명, 성적(F 이면 'Fail' 출력 , F 가 아니면 'Pass' 출력)
+*/
 let html = '';
-html += ` <h1>학생별 수강 성적표</h1><ul> `;
+html += ` <h1>학생별 성적표</h1><ul> `;
 // 학생 테이블
 for (let index = 0; index <= students.length - 1; index++) {
+    // 출력 데이터 변수 초기화/선언
     let student = students[index];
     let className = '';
     let fail = '';
-    // 수강신청 테이블
+    // 수강신청 배열 순회
     for (let index1 = 0; index1 <= attends.length - 1; index1++) {
         let attend = attends[index1];
-       // 과목 테이블
+       // 과목 배열 순회
         for (let index2 = 0; index2 <= subjects.length - 1; index2++) {
             let subject = subjects[index2];
             // 학생의 학번과 수강신청의 학번이 일치하면
              if (student.sid == attend.sid) { 
-                // 학생의 학번과 수강신청의 학번이 일치하면
+                // 과목의 학번과 수강신청의 학번이 일치하면
                 if (subject.cid == attend.cid) { 
                     fail = attend.grade == 'F' ? '<span style="color:red">Fail</span>' : '<span style="color:blue">Pass</span>';
                     className += ` ${ subject.className } (${attend.grade}, ${fail}) `
@@ -61,9 +62,11 @@ for (let index = 0; index <= students.length - 1; index++) {
     
     } // 수강신청 for2 end
     // 학생별 반복 html 구간 돌리기
-    html += `<li style="border-bottom:solid 1px #ddd; padding:10px 0">
+    html += `<li style="border-top:solid 1px #ddd; padding:10px 0">
         <div> <b>${student.sName}</b>(${student.sMajor} 전공) </div>
         <span> ${ className ? className : '수강내역이 없습니다.'} </span> 
     </li>`
 }//학생 for1 end
+html += ` </ul>`;
+// HTML 출력
 document.write(html);
