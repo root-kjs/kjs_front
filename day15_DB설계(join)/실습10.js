@@ -33,14 +33,15 @@ const attends = [{ aid: 1, sid: 10, cid: 1, grade: 'F' },
 { aid: 5, sid: 12, cid: 2, grade: 'C' },];
 
 /* (2) HTML 출력에 필요한 데이터 변수를 선언하고 해당 배열을 순회
-출력되는 정보는 학생명, 과목명, 성적(F 이면 'Fail' 출력 , F 가 아니면 'Pass' 출력)
-*/
+출력되는 정보는 학생명, 과목명, 성적(F 이면 'Fail' 출력 , F 가 아니면 'Pass' 출력)*/
+// html 영역 그릴 변수 선언
 let html = '';
 html += ` <h1>학생별 성적 대시보드</h1> `;
-// 학생 배열
+// 학생 배열 순회
 for (let index = 0; index <= students.length - 1; index++) {
-    // 출력 데이터 변수 초기화/선언
     let student = students[index];
+
+    // html 출력 데이터 변수 초기화/선언
     let className = '';
     let fail = '';
     // 수강신청 배열 순회
@@ -49,9 +50,9 @@ for (let index = 0; index <= students.length - 1; index++) {
        // 과목 배열 순회
         for (let index2 = 0; index2 <= subjects.length - 1; index2++) {
             let subject = subjects[index2];
-            // 학생의 학번과 수강신청의 학번이 일치하면
+            // 학생 객체의 학번과 수강신청 객체의 학번이 일치하면
              if (student.sid == attend.sid) { 
-                // 과목의 과목코드와 수강신청의 과몯코드가 일치하면
+                // 과목 객체의 과목코드와 수강신청객체의 과목목코드가 일치하면
                 if (subject.cid == attend.cid) { 
                     fail = attend.grade == 'F' ? '<span style="color:red">Fail</span>' : '<span style="color:blue">Pass</span>';
                     className += 
@@ -59,17 +60,14 @@ for (let index = 0; index <= students.length - 1; index++) {
                         <b>${ subject.className } (${ subject.teacher } 강사)</b><br/>
                         성적(학점): ${attend.grade}<br/>
                         이수 여부 : ${fail} <br/>
-                    </li>`
+                    </li>`;
                 }
             }
         } // 과목 for3 end
-    
     } // 수강신청 for2 end
-    // (3) 학생별 html 반복 구간 돌리기
-    html += `
-        <h3 style="border-top:solid 1px #ddd; padding-top:10px">${student.sName} (${student.sMajor}과) </h3>
-        <ul> ${ className ? className : '<li>수강내역이 없습니다.</li>'} </ul> 
-    `
+    // (3) 학생별 html 출력 데이터 반복 구간 돌리기
+    html += ` <h3 style="border-top:solid 1px #ddd; padding-top:10px">${student.sName} (${student.sMajor}과)</h3>
+              <ul> ${ className ? className : '<li>수강내역이 없습니다.</li>'} </ul> `;
 }//학생 for1 end
 
 //(4) HTML 최종출력
