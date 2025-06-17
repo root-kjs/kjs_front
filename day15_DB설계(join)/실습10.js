@@ -36,7 +36,7 @@ const attends = [{ aid: 1, sid: 10, cid: 1, grade: 'F' },
 출력되는 정보는 학생명, 과목명, 성적(F 이면 'Fail' 출력 , F 가 아니면 'Pass' 출력)
 */
 let html = '';
-html += ` <h1>학생별 성적표</h1><ul> `;
+html += ` <h1>학생별 성적 대시보드</h1> `;
 // 학생 배열
 for (let index = 0; index <= students.length - 1; index++) {
     // 출력 데이터 변수 초기화/선언
@@ -54,19 +54,24 @@ for (let index = 0; index <= students.length - 1; index++) {
                 // 과목의 과목코드와 수강신청의 과몯코드가 일치하면
                 if (subject.cid == attend.cid) { 
                     fail = attend.grade == 'F' ? '<span style="color:red">Fail</span>' : '<span style="color:blue">Pass</span>';
-                    className += ` ${ subject.className } (${attend.grade}, ${fail}) `
+                    className += 
+                    `<li> 
+                        <b>${ subject.className } (${ subject.teacher } 강사)</b><br/>
+                        성적(학점): ${attend.grade}<br/>
+                        이수 여부 : ${fail} <br/>
+                    </li>`
                 }
             }
         } // 과목 for3 end
     
     } // 수강신청 for2 end
     // (3) 학생별 html 반복 구간 돌리기
-    html += `<li style="border-top:solid 1px #ddd; padding:10px 0">
-        <div> <b>${student.sName}</b>(${student.sMajor} 전공) </div>
-        <span> ${ className ? className : '수강내역이 없습니다.'} </span> 
-    </li>`
+    html += `
+        <h3 style="border-top:solid 1px #ddd; padding-top:10px">${student.sName} (${student.sMajor}과) </h3>
+        <ul> ${ className ? className : '수강내역이 없습니다.'} </ul> 
+    `
 }//학생 for1 end
-html += ` </ul>`;
+html += ` `;
 
 //(4) HTML 최종출력
 document.write(html);
