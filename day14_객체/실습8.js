@@ -176,34 +176,22 @@ const team = [
   { name: '철수', department: '개발팀' },
   { name: '영희', department: '기획팀' },
   { name: '민수', department: '개발팀' },
-  { name: '지혜', department: '기획팀' }
+  { name: '지혜', department: '기획팀' } 
 ];
 
-// team.department
-
-const departments = {  };
-
-// for( i = 0; i <= team.length -1; i++){
-//   let person = team[i];
-
-//   console.log(person.department)
-
-//   // if( person.department == '개발팀' ){
-//   //   departments.개발팀 += person.name;
+let result = {  }; // 미리 부서명 배열 정의하지 않고.
+for( let i = 0 ; i <= team.length - 1 ; i++ ){
     
-//   // }
-// }
-departments.개발팀 = true;
-console.log( departments )
-
-departments['개발팀']=([])
-console.log( departments )
-
-
+    if( result[ team[i].department ] ){
+      result[ team[i].department ].push(team[i].name);
+    }else{
+      result[ team[i].department ] = [team[i].name];
+    }
+}
+console.log( result );
 
 
-
-/* 문제 8: 장바구니 총액 계산하기
+/* 문제 8: 장바구니 총액 계산하기 
 고객의 장바구니 정보를 담은 cart 배열과 상품 정보를 담은 productsInfo 배열이 있습니다.
 cart 배열: 각 요소는 고객이 담은 상품의 id와 quantity(수량)를 가집니다.
 productsInfo 배열: 각 요소는 상품의 고유 id와 price(가격)를 가집니다.
