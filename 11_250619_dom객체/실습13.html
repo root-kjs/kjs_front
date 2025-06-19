@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>실습13_미니전화번호부</title>
+</head>
+<body>
+
+    <h1>미니 전화번호부</h1>
+
+    <div class="">
+        <h3>등록</h3>
+        이름 입력 : <input id="nameInput" type="text" /><br/>
+        전화 번호 : <input id="callInput" type="number" /><br/>
+        메모 입력 : <textarea id="memoInput"></textarea><br/>
+        <button onclick="등록함수()">등록버튼</button>
+    </div>
+
+     <div class="">
+        <h3>연락처 목록</h3>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>이름</th>
+                    <th>전화번호</th>
+                    <th>메모</th>
+                </tr>
+            </thead>
+            <tbody id="content">
+                <tr>
+                    <td>유관순</td>
+                    <td>010-1234-5678</td>
+                    <td>독립운동가</td>
+                </tr>
+                <tr>
+                    <td>이순신</td>
+                    <td>010-2356-1234</td>
+                    <td>장군</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="2">총인원(명)</th>
+                    <th id="sum">3</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+   
+    <script src='실습13.js'></script>
+</body>
+</html>

@@ -35,7 +35,7 @@ const members = [
 // // 입력받은 아이디가 이미 배열에 존재하면 '존재하는 아이디 입니다'를 출력하고 배열에 등록하지 않습니다
 
 // let idCheck = false;
-// for( i = 0; i <= members.length - 1; i++ ){
+// for( let i = 0; i <= members.length - 1; i++ ){
 //   let member = members[i];
 //   if( member.id == id ){
 //     idCheck = true;
@@ -65,7 +65,7 @@ const scores = [
 // ];
 
 // let sumMath = 0;
-// for( i = 0 ; i <= scores.length - 1; i++ ){
+// for( let i = 0 ; i <= scores.length - 1; i++ ){
 //   let student = scores[i];
 //   //console.log(student.math)
 //   sumMath += student.math;
@@ -94,7 +94,7 @@ const products = [
 
 // let idCheck = false;
 // let index;
-// for( i = 0; i <= products.length - 1; i++){
+// for( let i = 0; i <= products.length - 1; i++){
 //   let product = products[i];
 //   if(  product.id  === 3 ){
 //     idCheck = true;
@@ -125,7 +125,7 @@ const users = [
 // ];
 // //isActive가 true인 사용자들만으로 구성된 새로운 배열 activeUsers를 만들고, 이 배열을 콘솔에 출력하시오
 // const activeUsers = [];
-// for( i = 0; i <= users.length - 1; i++){
+// for( let i = 0; i <= users.length - 1; i++){
 //   let user = users[i];
 //   console.log( user.isActive );
 //   if( user.isActive == true ){
@@ -150,7 +150,7 @@ const movies = [
 // ];
 
 // const movieTitles = [];
-// for( i = 0; i <= movies.length -1; i++ ){
+// for( let i = 0; i <= movies.length -1; i++ ){
 //   let movie = movies[i];
 //   //console.log( movie.title )
 //   movieTitles.push(movie.title) 
@@ -179,17 +179,16 @@ const team = [
   { name: '지혜', department: '기획팀' } 
 ];
 
-let result = {  }; // 미리 부서명 배열 정의하지 않고.
+let result = {  }; 
 for( let i = 0 ; i <= team.length - 1 ; i++ ){
     
     if( result[ team[i].department ] ){
-      result[ team[i].department ].push(team[i].name);
+      result[ team[i].department ].push(team[i].name); // 객체 표현의 기본문법 숙지 할 것!
     }else{
-      result[ team[i].department ] = [team[i].name];
+      result[ team[i].department ] = [team[i].name]; // team 객체의 department속성값을 result속성명으로 대체하고 배열로 속성값을 받음
     }
 }
 console.log( result );
-
 
 /* 문제 8: 장바구니 총액 계산하기 
 고객의 장바구니 정보를 담은 cart 배열과 상품 정보를 담은 productsInfo 배열이 있습니다.
@@ -203,12 +202,49 @@ const productsInfo = [
   { id: 3, price: 2500 }
 ];
 ---------------------------------------------------------------------------*/
+const cart = [{ id: 1, quantity: 2 },{ id: 3, quantity: 1 }];
+const productsInfo = [
+  { id: 1, price: 1000 },
+  { id: 2, price: 5000 }, // 장바구니에 없는 상품
+  { id: 3, price: 2500 }
+];
+
+// cart 배열을 기준으로, 장바구니에 담긴 모든 상품의 총 결제 금액을 계산하여 콘솔에 출력하세요.
+let carSum = 0;
+for( let i = 0; i <= productsInfo.length -1; i++ ){ // 1. 상품 배열 순회
+
+  for( let j = 0; j <= cart.length -1; j++ ){ // 2. 장바구니 배열 순회
+
+    if( productsInfo[i].id == cart[j].id ){
+      //console.log(productsInfo[i].price);
+      carSum += productsInfo[i].price
+    }
+  } //for2 end
+}//for1 end
+
+console.log( ` 장바구니 총 결제금액: ${carSum} ` )
 
 /* 문제 9: 투표 결과 집계하기
 다음 votes 배열은 투표 결과를 나타냅니다. 각 후보가 몇 표를 받았는지 집계하여, 후보의 이름이 키이고 득표수가 값인 객체를 만들어 콘솔에 출력하시오.
 const votes = ['A', 'B', 'B', 'C', 'A', 'B', 'A'];
 출력 예시: { A: 3, B: 3, C: 1 }
 ---------------------------------------------------------------------------*/
+const votes = ['A', 'B', 'B', 'C', 'A', 'B', 'A'];
+// 각 후보가 몇 표를 받았는지 집계하여, 
+// 후보의 이름이 키이고 득표수가 값인 객체를 만들어 콘솔에 출력하시오.
+
+let resultVote = {};
+let count = 0;
+for( let i = 0; i <= votes.length - 1; i++ ){
+  resultVote[votes[i]] = '';
+}
+// console.log( resultVote );
+console.log( Object.keys( resultVote ) );
+let man = Object.keys( resultVote );
+for(  let i = 0; i <=  man.length - 1; i++  ){
+  
+}
+
 
 /* 문제 10: 웹툰 평점 시각화하기
 webtoons 배열의 데이터를 이용하여, 각 웹툰의 평점을 별(★, ☆)로 시각화하여 HTML에 출력하시오.
