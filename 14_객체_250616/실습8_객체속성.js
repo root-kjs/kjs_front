@@ -1,4 +1,4 @@
-/* [실습8] 250616(월월)
+/* [실습8] 250616(월)
 문제 1: prompt로 제품 정보 객체 만들기
 prompt를 세 번 사용하여 사용자로부터 '제품명', '가격', '제조사'을 순서대로 입력받습니다. 
 입력받은 정보로 하나의 product 객체를 생성하고, 생성된 객체를 콘솔에 출력하시오.
@@ -237,13 +237,21 @@ let resultVote = {};
 let count = 0;
 for( let i = 0; i <= votes.length - 1; i++ ){
   resultVote[votes[i]] = '';
+  //console.log( Object.keys( resultVote ) );
 }
-// console.log( resultVote );
-console.log( Object.keys( resultVote ) );
-let man = Object.keys( resultVote );
-for(  let i = 0; i <=  man.length - 1; i++  ){
+
+if(){
   
 }
+//console.log( Object.keys( resultVote ) );
+console.log( resultVote );
+
+let man = Object.keys( resultVote );
+for(  let i = 0; i <=  man.length - 1; i++  ){
+  console.log( man[i] );
+
+}
+
 
 
 /* 문제 10: 웹툰 평점 시각화하기

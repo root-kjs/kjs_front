@@ -22,7 +22,7 @@ console.log( obj2 );    // {속성명1: 10, 속성명2: 'hello'}
     // Object.values( 변수명 )  : 객체내 모든 자료(value) 를 배열로 반환 
     // Object.entries( 변수명 ) : 객체내 모든 엔트리(entry) 를 배열로 반환 
 console.log( obj2 ); 
-console.log( obj2.속성명1 );            // 10
+console.log( obj2.속성명1 );            // 10`
 console.log( obj2['속성명2'] );         // hello
 console.log( Object.keys( obj2 ) );     // ['속성명1', '속성명2']
 console.log( Object.values( obj2 ) );   // [10, 'hello']
