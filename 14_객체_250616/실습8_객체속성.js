@@ -230,28 +230,19 @@ const votes = ['A', 'B', 'B', 'C', 'A', 'B', 'A'];
 출력 예시: { A: 3, B: 3, C: 1 }
 ---------------------------------------------------------------------------*/
 const votes = ['A', 'B', 'B', 'C', 'A', 'B', 'A'];
-// 각 후보가 몇 표를 받았는지 집계하여, 
-// 후보의 이름이 키이고 득표수가 값인 객체를 만들어 콘솔에 출력하시오.
 
 let resultVote = {};
-let count = 0;
+
 for( let i = 0; i <= votes.length - 1; i++ ){
-  resultVote[votes[i]] = '';
-  //console.log( Object.keys( resultVote ) );
+  let vote = votes[i];
+  if( vote in resultVote ){ // resultVote 객체의 속성이 있다면
+    resultVote[vote] += 1   // 해당 속성에 1값을 더한다. 객체 문자열키는 [] 접근 할 것!!!!!!
+  }else{
+    resultVote[vote] = 1;  // 없다면 해당 속성에 1값을 대입. 와...머든 기본 문법과 개념 숙지하자..ㅜㅜ
+  }
+  //console.log( resultVote[vote] );
 }
-
-if(){
-  
-}
-//console.log( Object.keys( resultVote ) );
-console.log( resultVote );
-
-let man = Object.keys( resultVote );
-for(  let i = 0; i <=  man.length - 1; i++  ){
-  console.log( man[i] );
-
-}
-
+console.log( resultVote ) // 객체의 키와 값의 대입과 표현식에 적응할 것!!!!!!!
 
 
 /* 문제 10: 웹툰 평점 시각화하기
