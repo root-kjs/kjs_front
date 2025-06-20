@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>실습14_상품관리(CRUD)</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='실습14.css'>
+</head>
+<body>
+    <div id="wrap">
+        <!-- 상품 등록 -->
+        <div id="header">
+            <select id="categoryInput">
+                <option value="" disabled selected> 카테고리 선택</option>
+                <option value="1"> 음료 </option>
+                <option value="2"> 과자 </option>
+            </select>
+            <input id="pnameInput" type="text" placeholder="제품명" />
+            <input id="ppriceInput" type="number" placeholder="제품가격" />
+            <input id="pimgInput" type="file" accept="image/*"/>
+            <button class="btnAdd" onclick="productAdd();"> 상품등록 </button>
+        </div>
+        <!-- 상품 목록 -->
+        <div id="main">
+            <table>
+                <thead>
+                    <tr>
+                        <th>이미지</th>
+                        <th>카테고리명</th>
+                        <th>상품명</th>
+                        <th>가격</th>
+                        <th>등록일</th>
+                        <th>비고</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="//placehold.co/100x100" /></td>
+                        <td>음료</td>
+                        <td>코카콜라</td>
+                        <td>1000</td>
+                        <td>2025-06-17</td>
+                        <td>
+                            <button class="btnDelete"> 삭제 </button>
+                            <button class="btnEdit"> 수정 </button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="5">계</th>
+                        <th id="sum"></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div> <!-- //제품 목록 -->
+    </div> <!-- //전체 wrap -->
+    <script src='실습14_제품관리(CRUD).js'></script>
+</body>
+</html>

@@ -261,6 +261,29 @@ const webtoons = [
    전지적 독자 시점 ★★★★★★★★★☆
 ---------------------------------------------------------------------------*/
 
+const webtoons = [
+  { title: '나 혼자만 레벨업', rating: 9.8 },
+  { title: '유미의 세포들', rating: 9.9 },
+  { title: '전지적 독자 시점', rating: 9.7 }
+];
+
+let html = '';
+for( let i = 0; i <= webtoons.length - 1; i++ ){
+
+  let black = parseInt(webtoons[i].rating); 
+  let star = '';
+
+  for( b = 0; b <= 10 - black; b++ ){
+      
+    }
+  }
+  html += `<div>
+              <b style="display:inline-block; width:120px"> ${ webtoons[i].title }</b>
+              <span> ${ webtoons[i].rating } </span>
+          </div>`
+}
+document.write( html );
+
 /* 문제11 : 공공데이터 포털 : 인천 부평구 맛집 현황 테이블 만들기
 [구현 조건]
   1. 공공데이터 포털에서 '인천광역시 부평구_맛있는 집(맛집) 현황' 의 open API 신청하여 결과를 복사하여 'response' 변수에 저장하시오.
