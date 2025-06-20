@@ -162,7 +162,7 @@ const inventory = {
 let fruit = Object.keys(inventory)
 let qty = Object.values(inventory)
 
-for( i = 0; i <= qty.length -1; i++){
+for( let i = 0; i <= qty.length -1; i++){
     //console.log( qty[i] );
     if( qty[i] < 10 ){
         console.log( fruit[i] );
@@ -184,7 +184,7 @@ const students = [
 ];
 
 // console.log( students.name );
-for( i = 0; i <= students.length -1; i++ ){
+for( let i = 0; i <= students.length -1; i++ ){
     //console.log( students[i] );
     let student = students[i];
     console.log( ` ${ student.name } : ${ student.major} `)
@@ -315,7 +315,7 @@ let html = `<table>
                     <tr>
                         <th>동별</th><th>세대수</th><th>인구수(계)</th><th>인구수(남)</th><th>인구수(여)</th>
                     </tr>`
-for( i =0; i <= data.length -1; i++){
+for( let i =0; i <= data.length -1; i++){
     //console.log( data[i] );
     let obj =  data[i]
     console.log( obj.동별 );
