@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>실습17_식당대기표(localStorage)</title>
+</head>
+<body>
+    <h2>대박식당</h2>
+    <div>
+        <h3>대기등록</h3>
+        <input class="cname"  type="text" placeholder="고객명"/> <br/>
+        <input class="ccall" type="text" placeholder="전화번호 입력"/>  <br/>
+        <input class="cnum" type="number" placeholder="총인원수 입력"/>  <br/>
+        <button onclick="addWaiting()"> 대기등록 </button>
+    </div>
+
+    <div>
+        <h3>대기확인</h3>
+        <input class="chcall" type="text" placeholder="전화번호 입력"/> <br/>
+        <button onclick="checkStatus()"> 대기확인 </button>
+    </div>
+    
+
+    <!-- JS파일 호출은 body마크업내 가장 하단에 -->
+<script src='실습17_식당대기_localStorage.js'></script>
+</body>
+</html>

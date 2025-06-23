@@ -10,7 +10,7 @@
     <!-- header -->
     <header id="header">
         <h1>Root Lab</h1>
-        <h2>인사관리 시스템</h2>
+        <h2>인사관리</h2>
     </header>
     <!-- header end -->
     <!-- main -->
@@ -36,13 +36,6 @@
                 <tbody>
                     <tr>
                         <td>기획팀</td>
-                        <td>
-                            <button class="btnEdit"> 수정 </button>
-                            <button class="btnDelete"> 삭제 </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>개발팀</td>
                         <td>
                             <button class="btnEdit"> 수정 </button>
                             <button class="btnDelete"> 삭제 </button>
@@ -97,16 +90,6 @@
                             <button class="btnDelete"> 삭제 </button>
                         </td>
                     </tr>
-                    <tr>
-                        <td><img src="//placehold.co/100x100" /></td>
-                        <td>일론머스크</td>
-                        <td>개발</td>
-                        <td>부장</td>
-                        <td>
-                            <button class="btnEdit"> 수정 </button>
-                            <button class="btnDelete"> 삭제 </button>
-                        </td>
-                    </tr>
                 </tbody>
                 <tfoot>
                     <tr>
@@ -119,10 +102,10 @@
         <!-- 02. 사원관리 end -->
         <!-- 03. 휴가신청관리 -->
         <div id="vacations">
-            <h3>휴가신청</h3>
+            <h3>휴가관리</h3>
             <!-- 03-1.휴가신청등록(C) -->
             <div class="regist">
-                <h4>휴가등록</h4>
+                <h4>휴가신청</h4>
                 <select id="staffInput">
                     <option value="" disabled selected>사원선택</option>
                     <option value="1"> 김진숙 </option>
@@ -131,7 +114,7 @@
                 <input id="vstartInput" type="date" placeholder="휴가시작일" />
                 <input id="vendInput" type="date" placeholder="휴가종료일" />
                 <input id="vmemoInput" type="text" placeholder="휴가 사유 입력" />
-                <button class="btnAdd" onclick="vacationAdd();"> 휴가신청 </button>
+                <button class="btnAdd" onclick="vacationAdd();"> 휴가등록 </button>
             </div>
             <!-- 03-2.휴가신청현황(R/U/D) -->
             <table>
@@ -141,7 +124,7 @@
                         <th>사원명</th>
                         <th>휴가시작일</th>
                         <th>휴가종료일</th>
-                        <th>휴가사유</th>
+                        <th>사유</th>
                         <th>관리</th>
                     </tr>
                 </thead>
@@ -151,15 +134,6 @@
                         <td>2025-07-10</td>
                         <td>2025-07-15</td>
                         <td>여름휴가</td>
-                        <td>
-                            <button class="btnCancel"> 신청취소 </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>일론 머스크</td>
-                        <td>2025-07-10</td>
-                        <td>2025-07-15</td>
-                        <td>-</td>
                         <td>
                             <button class="btnCancel"> 신청취소 </button>
                         </td>
