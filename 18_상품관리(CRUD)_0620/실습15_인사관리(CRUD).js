@@ -87,39 +87,79 @@ const vacationList = [ { vno : 0 , sno : 0 , vstart : '2025-07-01' , vend : '202
 
 /* ========================== < 04. 기능(함수) 설계 > =============================== */
 
-//★★★----------------- < 04-1. 부서(카테고리) 등록함수 > ---------------------------★★★
-
-//★ 기능정의 : html 부서등록 입력값 가져와서 부서 배열에 저장.
-//★ 실행조건 : 1.해당 HTML/JS 실행시, 2.부서등록 버튼 클릭시.
-
+//★ 04-1. 부서(카테고리) 등록함수 
 function departmentAdd(){   console.log( '!부서등록 >>> departmentAdd() exe' ); //
-//★ 작업 순서 
-    // (1) 부서입력 DOM(마크업 객체와 입력값) & [부서등록]버튼(onclick) 함수실행 연결
-    const dnameInput = document.querySelector( '#dnameInput' );     console.log( dnameInput );
-    const dname = dnameInput.value;    
-                                 console.log( dname );
+//- 기능정의 : html 부서등록 입력값 가져와서 부서 배열에 저장
+//- 실행조건 : 1.부서등록 버튼 클릭시.
+//- 작업 순서 
+    // 1) 부서입력 DOM(마크업 객체와 입력값) & [부서등록]버튼(onclick) 함수실행 연결
+    const dnameInput = document.querySelector( '#dnameInput' );     console.log( dnameInput ); //
+    const dname = dnameInput.value;    console.log( dname );
 
-    // (3) DOM 입력값 객체(obj) 연결
+    // 2) DOM 입력값 객체(obj) 연결
     // const dpartmentList = [ { dno : 2 , dname : '영업팀' } 
     dnoAuto++ // 자동번호 생성
-    const objDpartment = { dno : dnoAuto , dname : dname };     console.log( objDpartment );
+    const objDpartment = { dno : dnoAuto , dname : dname };     console.log( objDpartment ); //
 
-    // (2) 유효성 검사
+    // 3) 유효성 검사
     if( dname === '' ){
         alert( '부서명을 입력하세요.' );
-        return
+        return;
     }
     
-    // (4) 객체 배열에 저장 
-    dpartmentList.push( objDpartment );                         console.log( dpartmentList );
+    // 4) 객체 배열에 저장 
+    dpartmentList.push( objDpartment );                         console.log( dpartmentList ); //
     alert( '부서 등록되었습니다.' );
  
-    // (5) 기타( 등록 완료 후, 마크업 객체 value 초기화  )
-    dnameInput = '';
+    // 5) 기타( 등록 완료 후, 마크업 객체 value 초기화  )
+    dnameInput.value = '';
 
-    // (6) 부서등록 성공시, (확인 필요!) 아래 3개 매개변수(parameter) 반영
-    //  1.부서현황(table) , 2.사원등록 > 부서선택(select) 3. 사원현황 > 부서명(td)
+    // 6) 부서등록 성공시, 아래 함수 같이 실행하여 부서 신규 데이터 반영!
+    // - 1.부서현황(table) 목록
+    departmentList(); 
+    // - 2.사원등록 > 셀렉트 > 부서명(매개변수 : 부서ID) 
+
+    // - 3. 사원현황 > 표 > 부서명(매개변수 : 부서ID)
 
 } // departmentAdd() end
+
+//★ 04-2. 부서(카테고리) 출력 함수(전체 목록) 
+departmentList(); 
+function departmentList(){   console.log( '!부서 출력 >>> departmentList() exe' ); //
+//- 기능정의 : 부서배열에 저장 된 값을 html 표로 출력
+//- 실행조건 : 1. 해당 html/js 실행시 2.부서 신규등록이 성공적으로 배열 저장시
+//- 작업 순서 
+// 1) 출력할 html 위치 변수 선언 후, 부서 배열 순회하여  const dpartmentList = [ { dno : 0 , dname : '기획팀' }
+    const dnameInput = document.querySelector( '#departments > table > tbody' );
+    let tbody = `<tr>
+                    <td>기획팀</td>
+                    <td>
+                        <button class="btnEdit"> 수정 </button>
+                        <button class="btnDelete"> 삭제 </button>
+                    </td>
+                </tr>`;
+    for( let i = 0; i <= dpartmentList.length - 1; i++ ){
+        let department = dpartmentList[i];
+        dname.innerHTML = department.dname
+        // 2) html 해당 위치에 부서 정보 반복 출력하기
+        
+    }
+
+}
+
+//★ 04-3. 부서(카테고리) 삭제 함수
+//★ 04-4. 부서(카테고리) 수정 함수 
+
+//★ 04-5. 사원정보 등록 함수 
+//★ 04-6. 사원정보 출력 함수(전체목록)
+//★ 04-7. 사원정보 삭제 함수
+//★ 04-8. 사원정보 수정 함수
+//★ 04-9. 사원정보 출력(전체목록)> 부서명 출력 함수(매개변수 : 부서 ID )
+
+//★ 04-10. 휴가신청 등록 함수 
+//★ 04-11. 휴가신청 출력 함수(전체목록)
+//★ 04-12. 휴가신청 취소 함수 
+//★ 04-13. 휴가신청 정보(전체목록) > 사원명 출력함수(매개변수 : 사원 ID )
+
 
 
