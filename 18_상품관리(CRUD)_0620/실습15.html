@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,140 +20,122 @@
         <div id="departments">
             <h3>부서관리</h3>
             <!-- 01-1.부서등록(C) -->
-            <div class="regist">
+            <section class="regist">
                 <h4>부서등록</h4>
-                <input id="dnameInput" type="text" placeholder="부서명" />
-                <button class="btnAdd" onclick="departmentAdd();"> 부서등록 </button>
-            </div>
+                <input id="dnameInput" type="text" placeholder="부서명 입력" />
+                <button class="btnAdd" onclick="departmentAdd();"> 부서추가 </button>
+            </section>
             <!-- 01-2.부서현황(R/U/D) -->
-            <table>
-                <caption>부서현황</caption>
-                <thead>
-                    <tr>
-                        <th>부서명</th>
-                        <th>관리</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>기획팀</td>
-                        <td>
-                            <button class="btnEdit"> 수정 </button>
-                            <button class="btnDelete"> 삭제 </button>
-                        </td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th></th>
-                        <th id="sum"></th>
-                    </tr>
-                </tfoot>
-            </table>
+            <section class="list">
+                <table>
+                    <caption>부서현황</caption>
+                    <thead>
+                        <tr>
+                            <th>부서명</th>
+                            <th>관리</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>기획팀</td>
+                            <td>
+                                <button class="btnEdit"> 수정 </button>
+                                <button class="btnDelete"> 삭제 </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th></th>
+                            <th id="sum"></th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
         </div>
         <!-- 01. 부서관리 end -->
         <!-- 02. 사원관리 -->
         <div id="staffs">
             <h3>사원관리</h3>
             <!-- 02-1.사원등록(C) -->
-            <div class="regist">
+            <section class="regist">
                 <h4>사원등록</h4>
-                <input id="snameInput" type="text" placeholder="사원명" />
-                <input id="slevelInput" type="text" placeholder="직급" />
+                <input id="snameInput" type="text" placeholder="이름 입력" />
+                <input id="slevelInput" type="text" placeholder="직급 입력" />
                 <select id="sdepartInput">
-                    <option value="" disabled selected>부서선택</option>
+                    <option value="" disabled selected>부서 선택</option>
                     <option value="1"> 기획팀 </option>
                     <option value="1"> 개발팀 </option>
                 </select>
                 <input id="simgInput" type="file" accept="image/*" placeholder="증명사진"/>
                 <button class="btnAdd" onclick="staffAdd();"> 사원등록 </button>
-            </div>
+            </section>
             <!-- 02-2.사원현황(R/U/D) -->
-            <table>
-                <caption>사원현황</caption>
-                <thead>
-                    <tr>
-                        <th>사진</th>
-                        <th>사원명</th>
-                        <th>부서명</th>
-                        <th>직급</th>
-                        <th>관리</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><img src="//placehold.co/100x100" /></td>
-                        <td>김진숙</td>
-                        <td>기획</td>
-                        <td>대표</td>
-                        <td>
-                            <button class="btnEdit"> 수정 </button>
-                            <button class="btnDelete"> 삭제 </button>
-                        </td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th colspan="4"></th>
-                        <th id="sum"></th>
-                    </tr>
-                </tfoot>
-            </table>
+            <section class="list">
+                <table>
+                    <caption>사원현황</caption>
+                    <thead>
+                        <tr>
+                            <th>사진</th>
+                            <th>이름</th>
+                            <th>직급</th>
+                            <th>부서</th>
+                            <th>관리</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="//placehold.co/100x100" /></td>
+                            <td>김진숙</td>
+                            <td>대표</td>
+                            <td>기획팀</td>
+                            <td>
+                                <button class="btnEdit"> 수정 </button>
+                                <button class="btnDelete"> 삭제 </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="4"></th>
+                            <th id="sum"></th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
         </div> 
         <!-- 02. 사원관리 end -->
         <!-- 03. 휴가신청관리 -->
         <div id="vacations">
             <h3>휴가관리</h3>
-            <!-- 03-1.휴가신청등록(C) -->
-            <div class="regist">
+            <!-- 03-1.휴가등록(C) -->
+            <section class="regist">
                 <h4>휴가신청</h4>
                 <select id="staffInput">
-                    <option value="" disabled selected>사원선택</option>
-                    <option value="1"> 김진숙 </option>
-                    <option value="2"> 일론 머스크 </option>
+                    <option value="" disabled selected>사원 선택</option>
+                    <option value="1"> 김진숙 대표(기획팀) </option>
                 </select>
+                <input id="vmemoInput" type="text" placeholder="휴가사유 입력" />
                 <input id="vstartInput" type="date" placeholder="휴가시작일" />
                 <input id="vendInput" type="date" placeholder="휴가종료일" />
-                <input id="vmemoInput" type="text" placeholder="휴가 사유 입력" />
-                <button class="btnAdd" onclick="vacationAdd();"> 휴가등록 </button>
-            </div>
-            <!-- 03-2.휴가신청현황(R/U/D) -->
-            <table>
-                <caption>신청현황</caption>
-                <thead>
-                    <tr>
-                        <th>사원명</th>
-                        <th>휴가시작일</th>
-                        <th>휴가종료일</th>
-                        <th>사유</th>
-                        <th>관리</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>김진숙</td>
-                        <td>2025-07-10</td>
-                        <td>2025-07-15</td>
-                        <td>여름휴가</td>
-                        <td>
-                            <button class="btnCancel"> 신청취소 </button>
-                        </td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th colspan="4"></th>
-                        <th id="sum"></th>
-                    </tr>
-                </tfoot>
-            </table>
+                <button class="btnAdd" onclick="vacationAdd();"> 휴가신청 </button>
+            </section>
+            <!-- 03-2.신청현황(R/U/D) -->
+            <section class="list">
+                <h4>신청현황</h4>
+                <ul>
+                    <li><b>김진숙 대표(기획팀)</b> <button onclick="">신청취소</button></li>
+                    <li>휴가기간 : 2025-07-10 ~ 2025-07-20</li>
+                    <li>휴가사유 : 여름휴가</li>
+                </ul>
+            </section>
         </div>
         <!-- 03. 휴가신청관리 end -->
     </main>
     <!-- main end -->
     <!-- footer -->
     <footer id="footer">
-        <small>ⓒ Root Lap. All Rights Researved.</small>
+        <small>ⓒ 2025 Root Lab. All rights reserved</small>
     </footer>
     <!-- footer end -->
 </div>

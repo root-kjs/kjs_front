@@ -51,19 +51,17 @@
     휴가 관리 기능:
         신청: 휴가 정보를 입력하고 "신청" 버튼 클릭 시, 휴가 신청 목록에 즉시 추가되어야 합니다.
         취소: "신청취소" 버튼 클릭 시, 해당 휴가 신청 내역이 목록에서 제거되어야 합니다.
------------------------------------------------------------------------------------
+
 [ 작업순서 ]
 01. 요구사항 분석 + 화면스케치(프로토타입)
 02. 화면설계(html, css)
 03. 데이터 모델링
 04. 기능(함수) 설계
 05. 구현/로직
-06. 테스트
------------------------------------------------------------------------------------*/
-
+06. 테스트 */
 /* ========================== < 03. 데이터 모델링 > =============================== */
 
-// 03-1. 부서 카테고리 배열
+// 03-1. 부서 배열
 let dnoAuto = 3; // 자동 사원번호 초기값
 const dpartmentList = [ { dno : 0 , dname : '기획팀' }, { dno : 1 , dname : '개발팀' }, 
     { dno : 2 , dname : '영업팀' }, { dno : 3 , dname : '경영지원' } 
@@ -87,74 +85,116 @@ const vacationList = [ { vno : 0 , sno : 0 , vstart : '2025-07-01' , vend : '202
 
 /* ========================== < 04. 기능(함수) 설계 > =============================== */
 
-//★ 04-1. 부서(카테고리) 등록함수 
-function departmentAdd(){   console.log( '!부서등록 >>> departmentAdd() exe' ); //
+//★ 04-1.부서 등록 함수 >>----------------------------------------------------------->>
+function departmentAdd(){   console.log( '!부서 등록 >>> departmentAdd() exe' ); //
 //- 기능정의 : html 부서등록 입력값 가져와서 부서 배열에 저장
 //- 실행조건 : 1.부서등록 버튼 클릭시.
 //- 작업 순서 
     // 1) 부서입력 DOM(마크업 객체와 입력값) & [부서등록]버튼(onclick) 함수실행 연결
-    const dnameInput = document.querySelector( '#dnameInput' );     console.log( dnameInput ); //
+    const dnameInput = document.querySelector( '#dnameInput' );   console.log( dnameInput ); //
     const dname = dnameInput.value;    console.log( dname );
-
     // 2) DOM 입력값 객체(obj) 연결
     // const dpartmentList = [ { dno : 2 , dname : '영업팀' } 
     dnoAuto++ // 자동번호 생성
-    const objDpartment = { dno : dnoAuto , dname : dname };     console.log( objDpartment ); //
-
+    const objDpartment = { dno : dnoAuto , dname : dname };   console.log( objDpartment ); //
     // 3) 유효성 검사
     if( dname === '' ){
         alert( '부서명을 입력하세요.' );
+        dnameInput.focus();
         return;
     }
-    
+    for( let i = 0; i <= dpartmentList.length - 1; i++ ){
+        let department = dpartmentList[i];
+        if( dname === department.dname ){
+            alert( '이미 등록된 부서명입니다.' );
+            dnameInput.value = '';
+            dnameInput.focus();
+            return;
+        }
+    }
     // 4) 객체 배열에 저장 
-    dpartmentList.push( objDpartment );                         console.log( dpartmentList ); //
+    dpartmentList.push( objDpartment );   console.log( dpartmentList ); //
     alert( '부서 등록되었습니다.' );
- 
     // 5) 기타( 등록 완료 후, 마크업 객체 value 초기화  )
     dnameInput.value = '';
-
     // 6) 부서등록 성공시, 아래 함수 같이 실행하여 부서 신규 데이터 반영!
     // - 1.부서현황(table) 목록
     departmentList(); 
     // - 2.사원등록 > 셀렉트 > 부서명(매개변수 : 부서ID) 
-
     // - 3. 사원현황 > 표 > 부서명(매개변수 : 부서ID)
+} // departmentAdd() end.
 
-} // departmentAdd() end
-
-//★ 04-2. 부서(카테고리) 출력 함수(전체 목록) 
+//★ 04-2.부서 출력 함수(전체 목록) >>------------------------------------------------->>
 departmentList(); 
 function departmentList(){   console.log( '!부서 출력 >>> departmentList() exe' ); //
 //- 기능정의 : 부서배열에 저장 된 값을 html 표로 출력
-//- 실행조건 : 1. 해당 html/js 실행시 2.부서 신규등록이 성공적으로 배열 저장시
+//- 실행조건 : 1. 해당 html/js 실행시 2.부서 신규등록이 성공적으로 배열 저장시 3.부서 삭제시 4. 부서 수정시
 //- 작업 순서 
 // 1) 출력할 html 위치 변수 선언 후, 부서 배열 순회하여  const dpartmentList = [ { dno : 0 , dname : '기획팀' }
-    const dnameInput = document.querySelector( '#departments > table > tbody' );
-    let tbody = `<tr>
-                    <td>기획팀</td>
-                    <td>
-                        <button class="btnEdit"> 수정 </button>
-                        <button class="btnDelete"> 삭제 </button>
-                    </td>
-                </tr>`;
+    const dnameInput = document.querySelector( '#departments table tbody' );
+    let tbody = '';
     for( let i = 0; i <= dpartmentList.length - 1; i++ ){
         let department = dpartmentList[i];
-        dname.innerHTML = department.dname
         // 2) html 해당 위치에 부서 정보 반복 출력하기
-        
+        tbody += `<tr>
+                    <td> ${ department.dname } </td>
+                    <td>
+                        <button onclick="departmentEdit(${ department.dno })" class="btnEdit"> 수정 </button>
+                        <button onclick="departmentDelete(${ department.dno })" class="btnDelete"> 삭제 </button>
+                    </td>
+                </tr>`;
     }
+    dnameInput.innerHTML = tbody;
+} // departmentList() end.
 
-}
+//★04-3. 부서 삭제 함수 >>---------------------------------------------------------->>
+function departmentDelete( dno ){   console.log( '!부서 삭제 >>> departmentList() exe' ); //
+//- 기능정의 : html > 부서 목록(표) > 해당 부서 > 삭제 기능
+//- 실행조건 : 1.html > 부서 목록(표) > 해당 부서 >삭제 버튼 클릭시
+//- 작업 순서 
+// 1) 해당 마크업 객체에 온클릭 departmentDelete() 함수 호출( 매개변수 : dno )
+// 2) 부서 배열 순회하여  const dpartmentList = [ { dno : 0 , dname : '기획팀' } 해당 부서 객체 splice
+    for( let i = 0; i <= dpartmentList.length - 1; i++ ){
+        let department = dpartmentList[i];
+        if( dno == department.dno ){
+            if( confirm( `[${ department.dname }] 정말 삭제하시겠습니까? ` )  ){ 
+                dpartmentList.splice(i, 1)
+                alert( '부서명이 삭제되었습니다.' )
+                departmentList(); 
+                return;
+            }
+        }
+    }
+} // departmentDelete() end.
 
-//★ 04-3. 부서(카테고리) 삭제 함수
-//★ 04-4. 부서(카테고리) 수정 함수 
-
+//★ 04-4. 부서 수정 함수 >>----------------------------------------------------------->>
+function departmentEdit( dno ){   console.log( '!부서 수정 >>> departmentEdit() exe' ); //
+//- 기능정의 : html > 부서 목록(표) > 해당 부서 > 수정 기능
+//- 실행조건 : 1.html > 부서 목록(표) > 해당 부서 > 수정 버튼 클릭시
+//- 작업 순서 
+// 1) 해당 마크업 객체에 온클릭 departmentEdit() 함수 호출( 매개변수 : dno )
+// 2) 부서 배열 순회하여  const dpartmentList = [ { dno : 0 , dname : '기획팀' } 해당 부서 객체 splice
+    for( let i = 0; i <= dpartmentList.length - 1; i++ ){
+        let department = dpartmentList[i];
+        if( dno == department.dno ){
+            if(department.dname = prompt( `수정할 부서명 입력 ` )){
+                alert( '부서명이 수정되었습니다.' )
+                departmentList();
+                return;
+            }
+        }
+    }
+} // departmentDelete() end.
 //★ 04-5. 사원정보 등록 함수 
 //★ 04-6. 사원정보 출력 함수(전체목록)
 //★ 04-7. 사원정보 삭제 함수
 //★ 04-8. 사원정보 수정 함수
 //★ 04-9. 사원정보 출력(전체목록)> 부서명 출력 함수(매개변수 : 부서 ID )
+
+
+
+
+
 
 //★ 04-10. 휴가신청 등록 함수 
 //★ 04-11. 휴가신청 출력 함수(전체목록)
