@@ -62,16 +62,16 @@
 /* ============================== < 03. 데이터 모델링 > ======================================= */
 
 // 03-1. 부서 배열
-let dnoAuto = 2; // 자동 부서번호 초기값
 const dpartmentList = [ { dno : 0 , dname : '기획팀' }, { dno : 1 , dname : '개발팀' },  { dno : 2 , dname : '영업팀' } ];
+let dnoAuto = dpartmentList.length; // 자동 부서번호 초기값
 console.log( dpartmentList ); // 부서 확인
 
 // 03-2. 사원 배열
-let snoAuto = 3; // 자동 사원번호 초기값
-let noimg = '//placehold.co/100x100'; // 이미지 없는 경우 
-const staffList = [ { dno : 0 , sno : 0 , sname : '김진숙' , slevel : '대표' , simg : noimg  },
-    { sno : 1 , dno : 1 ,  sname : '일론 머스크' , slevel : '사원' , simg : noimg  },
-    { sno : 2 , dno : 2 ,  sname : '한재웅' , slevel : '이사' , simg : noimg  } ];
+let noImg = '//placehold.co/100x100'; // 이미지 없는 경우 
+const staffList = [ { dno : 0 , sno : 0 , sname : '김진숙' , slevel : '대표' , simg : noImg  },
+    { sno : 1 , dno : 1 ,  sname : '일론 머스크' , slevel : '사원' , simg : noImg  },
+    { sno : 2 , dno : 2 ,  sname : '한재웅' , slevel : '이사' , simg : noImg  } ];
+let snoAuto = staffList.length; // 자동 사원번호 초기값
 console.log( staffList ); // 사원 확인
 
 // 03-3. 휴가신청 배열
@@ -130,20 +130,25 @@ function departmentList(){   console.log( '!부서 출력함수 >>> departmentLi
 //- 실행조건 : 1. 해당 html/js 실행시 2.부서 신규등록이 성공적으로 배열 저장시 3.부서 삭제시 4. 부서 수정시
 //- 작업 순서 
 // 1) 출력할 html 위치 변수 선언 후, 부서 배열 순회하여  const dpartmentList = [ { dno : 0 , dname : '기획팀' }
-    const dnameInput = document.querySelector( '#departments table tbody' );
+    const dnameInput = document.querySelector( '#departments table tbody' ); // 부서관리 > 부서목록 테이블
+    const dnameSelect= document.querySelector( '#staffs select' ); //사원관리 > 부서선택 셀렉트박스
     let tbody = '';
+    let dOption ='<option value="" disabled selected>부서 선택*</option>'
     for( let i = 0; i <= dpartmentList.length - 1; i++ ){
         let department = dpartmentList[i];
         // 2) html 해당 위치에 부서 정보 반복 출력하기
         tbody += `<tr>
                     <td> ${ department.dname } </td>
                     <td>
-                        <button onclick="departmentEdit(${ department.dno })" class="btnEdit"> 수정 </button>
-                        <button onclick="departmentDelete(${ department.dno })" class="btnDelete"> 삭제 </button>
+                        <button onclick="departmentEdit(${ department.dno })"> 수정 </button>
+                        <button onclick="departmentDelete(${ department.dno })"> 삭제 </button>
                     </td>
                 </tr>`;
+
+        dOption += `<option value="${ department.dno }"> ${ department.dname } </option>`;
     }
-    dnameInput.innerHTML = tbody;
+    dnameInput.innerHTML = tbody; // 부서관리 > 부서목록 테이블
+    dnameSelect.innerHTML = dOption; //사원관리 > 부서선택 셀렉트박스
 } // departmentList() end.
 
 /* ★ 04-3. 부서 삭제함수  ----------------------------------------------------------------------*/
@@ -162,14 +167,17 @@ function departmentDelete( dno ){   console.log( '!부서 삭제함수 >>> depar
                 alert( '부서명이 삭제되었습니다.' )
                 departmentList(); 
                 return;
+            }else{
+                return; // 컨펌창 취소 눌렀을때 리턴(삭제 함수 종료!)
             }
         }
     }
+    alert( '[오류] 부서번호 확인!' )
 } // departmentDelete() end.
 
 /* ★ 04-4. 부서 수정함수  ----------------------------------------------------------------------*/
 
-function departmentEdit( dno ){   console.log( '!부서 수정함수 >>> departmentEdit() exe' ); //
+function departmentEdit( dno ){   console.log( '!부서 수정함수 >>> departmentEdit() exe' ); 
 //- 기능정의 : html > 부서 목록(표) > 해당 부서 > 수정 기능
 //- 실행조건 : 1.html > 부서 목록(표) > 해당 부서 > 수정 버튼 클릭시
 //- 작업 순서 
@@ -182,57 +190,132 @@ function departmentEdit( dno ){   console.log( '!부서 수정함수 >>> departm
                 alert( '부서명이 수정되었습니다.' )
                 departmentList();
                 return;
+            }else{
+                return; // 프롬프트 취소 눌렀을때 리턴(수정 함수 종료!)
             }
         }
     }
+    alert( '[오류] 부서번호 확인!' )
 } // departmentDelete() end.
 
 /* ★ 04-5. 사원 등록함수  ----------------------------------------------------------------------*/
 
-function staffAdd(){   console.log( '!사원 등록함수 >>> staffAdd() exe' ); //
+function staffAdd(){   console.log( '!사원 등록함수 >>> staffAdd() exe' ); 
 //- 기능정의 : html 마크업 객체 사원등록 입력값 가져와서 사원 배열에 저장
 //- 실행조건 : 1.사원등록 버튼 클릭시.
 //- 작업 순서 
     // 1) 사원입력 마크업 객체와 입력값 변수 선언 & [사원등록]버튼(onclick) 함수실행 연결
     const snameInput = document.querySelector( '#snameInput' );      console.log( snameInput ); 
     const slevelInput = document.querySelector( '#slevelInput' );    console.log( slevelInput ); 
-    const sdepartInput = document.querySelector( '#sdepartInput' );  console.log( sdepartInput );
+    const sdepartSelset = document.querySelector( '#staffs select' );  console.log( sdepartSelset );
     const simgInput = document.querySelector( '#simgInput' );        console.log( simgInput ); 
 
     const sname = snameInput.value;         console.log( sname );
     const slevel = slevelInput.value;       console.log( slevel );
-    const sdepart = sdepartInput.value;     console.log( sdepart );
-    const simg = simgInput.files[0];         console.log( simg );
+    const dno = sdepartSelset.value;     console.log( dno );
+    const simg = simgInput.files[0];        console.log( simg );
 
-    // 2) 마크업 입력값 > 객체 구성 const staffList = [ { dno : 0 , sno : 0 , sname : '김진숙' , slevel : '대표' , simg : noimg  }, 
-        // URL.createObjectURL( ) : Blob(Binary Large Object) 객체나 File 객체를 사용하여 URL을 생성할 수 있게 해주는 메서드,  자바스크립트의 웹 API 
-    snoAuto++
-    let obj = { dno : dnoAuto , sno : snoAuto , sname : sname , slevel : slevel , simg : simg ? URL.createObjectURL( simg ) : noImg  } 
+    // 2) 마크업 입력값 > 객체 구성 const staffList = [ { dno : 0 , sno : 0 , sname : '김진숙' , slevel : '대표' , simg : noImg  } // URL.createObjectURL( ) : Blob(Binary Large Object) 객체나 File 객체를 사용하여 URL을 생성할 수 있게 해주는 메서드,  자바스크립트의 웹 API 
+    snoAuto++; 
+    let objStaff = { dno : Number(dno) , sno : snoAuto , sname : sname , slevel : slevel , simg : simg ? URL.createObjectURL( simg ) : noImg  };     console.log( objStaff );
 
-    // 3) 유효성 검사
-    if( sname ==='' || dno === '' ){
-        alert( '' )
+    // 3) 유효성 검사( 필수 입력 항목 )
+    if( sname === '' ){
+        alert( '이름을 입력하세요' )
+        snameInput.focus();
+        return;
     }
+    if( dno === '' ){
+        alert( '부서를 선택하세요' )
+        sdepartSelset.focus();
+        return;
+    }
+    // 4) 생성한 객체를 배열에 넣기
+    staffList.push( objStaff );  console.log( staffList );
 
+    // 5) 마크업 밸류값 초기화
+    snameInput.value = '';
+    slevelInput.value = '';
+    sdepartSelset.value = '';
+    simgInput.files[0] = '';
 
+    // 6) 사원 신규등록시 사원목록에 바로 반영
+    staffsList();
 
 } // staffAdd() end.
 
+staffsList();
+/* ★ 04-6-1. 사원 출력함수(목록)  -------------------------------------------------------------------*/
+function staffsList(){   console.log( '!사원 출력함수 >>> staffsList() exe' ); 
+//- 기능정의 : 사원 목록 출력
+//- 실행조건 : 1.html/js 실행시  2.사원 등록시  3.사원 삭제/수정시 
+//- 작업 순서 
+    // 1) 해당하는 html 위치 마크업 객체 가져오기와 반복구간 html 영역 변수 선언
+    let tbodyStaff = document.querySelector( '#staffs table tbody' );// 사원관리 > 사원목록 테이블
+    let trStaff ='';
+    let vSelect = document.querySelector( '#vacations select' ); // 휴가 신청 > 사원 선택 셀렉트박스 
+    let vOption = '<option value="" disabled selected>사원 선택*</option>';
+    // 2) 사원 배열 순회 const staffList = [ { dno : 0 , sno : 0 , sname : '김진숙' , slevel : '대표' , simg : noImg  },
+    for( let i = 0; i <= staffList.length - 1; i++ ){
+        let staff = staffList[i];
 
-/* ★ 04-6. 사원 출력함수(목록)  ------------------------------------------------------------------*/
+    trStaff += `<tr>
+                    <td><img src="${ staff.simg }" /></td>
+                    <td> ${ staff.sname } </td>
+                    <td> ${ staff.slevel === '' ? '사원' : staff.slevel } </td>
+                    <td> ${ departmentName( staff.dno ) }</td>
+                    <td>
+                        <button onclick="staffEdit(${ staff.sno })"> 수정 </button>
+                        <button onclick="staffDelete(${ staff.sno })"> 삭제 </button>
+                    </td>
+                </tr>`
+    vOption += `<option value="${ staff.dno }"> ${ staff.sname }(${ departmentName( staff.dno ) }/${ staff.slevel === '' ? '사원' : staff.slevel })</option>`
+        
+    }
+    // 3) 반복 html 화면 출력
+    tbodyStaff.innerHTML = trStaff; // 사원관리 > 사원목록 테이블
+    vSelect.innerHTML = vOption; // - 휴가 신청 > 사원 선택 셀렉트박스 
+    // 3) 사원 등록/수정/삭제시 사원 목록 리로드
+
+} // staffList() end.
+
+/* ★ 04-6-2. 부서명 출력함수(목록)  --------------------------------------------------------------*/
+function departmentName( dno ){   console.log( '!부서명 출력함수 >>> departmentName() exe' ); 
+// 2) 부서 배열 순회하여  const dpartmentList = [ { dno : 0 , dname : '기획팀' } 해당 부서 객체 splice
+    for( let i = 0; i <= dpartmentList.length - 1; i++ ){
+        let department = dpartmentList[i]; 
+        if( dno === department.dno ){
+            return department.dname; 
+        }
+    }
+} // departmentName() end.
+
 /* ★ 04-7. 사원 삭제함수  ------------------------------------------------------------------------*/
+function staffDelete( sno ){   console.log( '!사원 삭제함수  >>> staffDelete(sno) exe' ); 
+// 2) 부서 배열 순회하여  const dpartmentList = [ { dno : 0 , dname : '기획팀' }  배열 객체 splice
+    for( let i = 0; i <= staffList.length - 1; i++ ){
+        let staff = staffList[i]; 
+        if( sno === staff.sno ){
+            if(confirm( '정말로 삭제 하시겠습니까?')){
+                staffList.splice(i,1);
+                staffsList();
+                return;
+            }else{
+                return;
+            }
+        }
+    }
+    alert( '[오류] 사원번호 확인!' );
+} 
 /* ★ 04-8. 사원 수정함수  ------------------------------------------------------------------------*/
-/* ★ 04-9. 사원 출력(목록) > 부서명 출력함수(매개변수: 부서ID )  -----------------------------------*/
 
-
-
-
+/* ★ 04-9. 사원 출력(목록) > 부서명 출력함수(매개변수: 부서ID )  -------------------------------------*/
 
 
 /* ★ 04-10. 휴가신청 등록 함수   -------------------------------------------------------------------*/
-/* ★ 04-11. 휴가신청 출력 함수(목록)  --------------------------------------------------------------*/
+/* ★ 04-11. 휴가신청 출력 함수(목록)  ---------------------------------------------------------------*/
 /* ★ 04-12. 휴가신청 취소 함수   -------------------------------------------------------------------*/
-/* ★ 04-13. 휴가신청 (목록) > 사원명 출력함수(매개변수: 사원ID )  -----------------------------------*/
+/* ★ 04-13. 휴가신청 (목록) > 사원명 출력함수(매개변수: 사원ID )  -------------------------------------*/
 
 
 
