@@ -31,9 +31,32 @@ checkStatus() 구현 (대기 확인):
     -일치하는 정보가 있으면, alert를 통해 해당 손님의 "대기번호"를 보여줍니다. (예: "고객님의 대기번호는 O번 입니다.")
     -일치하는 정보가 없으면, alert로 "대기 정보가 없습니다."를 알려줍니다.
    -------------------------------------------------------------------------------- */
+/*★★★ 데이터 모델링은 반/드/시 미리 설계 할 것!!!!! _ 250624(화)
+- 코딩하기전에 요구 사항 분석과 문제 풀이 과정(절차)을 명확하게 먼저 기입하고, 핵심 기능 서술을 먼저 할 것!
+- 중복 코드를 재사용 하는 것을 함수! 반복되는 자주 사욜하는 코드는 함수화하여 변수로 함수 호출 하자!
+- 핵심 키워드만 간단히 적기
+
+★★★ 핵심 기능 구현(순서도) : 큰 줄기의 핵심 기능 먼저 구현!!! 그 외의 잔기능은 나중에 해도 됨. 
+
+1) 저장(등록 : C)
+- 입력 마크업 객체 가져오기 : 마크업 객체와 배열은 const 로 선언 할 것!
+- 저장 할 마크업 입력값 가져오기
+- 객체화
+    - ★★★ 함수화된 배열(웹스토리지) 불러오기 ( 변수에 함수를 대입하여 소스코드 절약! )
+    - 초기화 값은 삼항 연산자 사용해도 간단.
+- 배열에 객체 저장
+
+2) 조회/비교(목록 : R)
+- 입력 마크업 객체 가져오기
+- 비교할 마크업 입력값 가져오기 
+- 배열 순회(for문): 목록 조회
+- 입력값과 배열 해당 데이터 조건문 비교(if문)
+- 화면 반복 출력(for문)
+*/
+
 
 function addWaiting(){
-    console.log( ' >> 대기등록 함수 >> addWaiting() exe' );
+    console.log( ' >> 대기 등록함수 >> addWaiting() exe' );
 
     const cname = document.querySelector('.cname');
     const ccall = document.querySelector('.ccall');
@@ -43,7 +66,7 @@ function addWaiting(){
     const call = ccall.value; 
     const num = cnum.value; 
 
-    // 로컬 스토리지에서 회원가입목록 가져오기
+    // 로컬 스토리지에서 회원가입목록 가져오기 // ★★★데이터 모델링은 반드시 미리 설계 할 것!!!!!★★★
     let WaitingList = localStorage.getItem( 'WaitingList' );
     console.log( WaitingList );
 
@@ -85,10 +108,10 @@ function addWaiting(){
 
     //localStorage.clear( 'WaitingList' );
     
-}
+} // addWaiting() end.
 
 function checkStatus(){
-    console.log( ' >> 대기확인 함수 >> checkStatus() exe' );
+    console.log( ' >> 대기 확인함수 >> checkStatus() exe' );
 
     // localStorage WaitingList 속성 있는지 가져와서getItem 확인
     let WaitingList = localStorage.getItem( 'WaitingList' )
@@ -117,5 +140,4 @@ function checkStatus(){
     }
     alert( `대기정보가 없습니다.` ) 
     chcall.value ='';
-    return;
-}
+} // checkStatus() end.

@@ -22,7 +22,7 @@
             <!-- 01-1.부서등록(C) -->
             <section class="regist">
                 <h4>부서등록</h4>
-                <input id="dnameInput" type="text" placeholder="부서명 입력" />
+                <input id="dnameInput" type="text" placeholder="부서명 입력*" />
                 <button class="btnAdd" onclick="departmentAdd();"> 부서추가 </button>
             </section>
             <!-- 01-2.부서현황(R/U/D) -->
@@ -60,12 +60,12 @@
             <!-- 02-1.사원등록(C) -->
             <section class="regist">
                 <h4>사원등록</h4>
-                <input id="snameInput" type="text" placeholder="이름 입력" />
+                <input id="snameInput" type="text" placeholder="이름 입력*" />
                 <input id="slevelInput" type="text" placeholder="직급 입력" />
                 <select id="sdepartInput">
-                    <option value="" disabled selected>부서 선택</option>
+                    <option value="" disabled selected>부서 선택*</option>
                     <option value="1"> 기획팀 </option>
-                    <option value="1"> 개발팀 </option>
+                    <option value="2"> 개발팀 </option>
                 </select>
                 <input id="simgInput" type="file" accept="image/*" placeholder="증명사진"/>
                 <button class="btnAdd" onclick="staffAdd();"> 사원등록 </button>
@@ -112,12 +112,12 @@
             <section class="regist">
                 <h4>휴가신청</h4>
                 <select id="staffInput">
-                    <option value="" disabled selected>사원 선택</option>
+                    <option value="" disabled selected>사원 선택*</option>
                     <option value="1"> 김진숙 대표(기획팀) </option>
                 </select>
                 <input id="vmemoInput" type="text" placeholder="휴가사유 입력" />
-                <input id="vstartInput" type="date" placeholder="휴가시작일" />
-                <input id="vendInput" type="date" placeholder="휴가종료일" />
+                <input id="vstartInput" type="date" placeholder="휴가시작일*" />
+                <input id="vendInput" type="date" placeholder="휴가종료일*" />
                 <button class="btnAdd" onclick="vacationAdd();"> 휴가신청 </button>
             </section>
             <!-- 03-2.신청현황(R/U/D) -->

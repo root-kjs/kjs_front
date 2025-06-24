@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title> admin </title>
+
+</head>
+
+<body>
+    <div>
+        <h2> 제품 등록 </h2>
+        <input id="nameInput" type="text" placeholder="제품명 입력 :" />
+        <input id="priceInput" type="number" placeholder="가격 입력 :" />
+        <textarea id="infoInput"> </textarea>
+        <input id="imgInput" type="file" placeholder="이미지URL 입력 :" />
+        <button onclick="productRegistration()"> 제품 등록 </button>
+    </div>
+
+    <div>
+        <h2> 제품목록 </h2>
+        <table id="productTable">
+            <thead>
+                <tr>
+                    <th> 이미지 </th>
+                    <th> 제품명 </th>
+                    <th> 가격 </th>
+                    <th> 설명 </th>
+                    <th> 비고 </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> 코카콜라 </td>
+                    <td> 1800 </td>
+                    <td> 단 맛 </td>
+                    <td> <img src="https://placehold.co/100x100/png" /> </td>
+                    <td> <button class="btnDelete" onclick="productDelete()"> 선택 제품 삭제 </button> </td>
+                    <!-- 버튼 옆에 btnDelete 클래스, productDelete 온클릭 함수 지정-->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <h2> 재고 로그 관리</h2>
+        <select id="stockInput">
+            <option disabled selected> 제품ID </option>
+            <option> 오홍홍 </option>
+        </select>
+        <select id="stockTypeInput">
+            <option disabled selected> 변동유형 </option>
+            <option> 홍 </option>
+        </select>
+        <input id="stockCountInput" type="number" placeholder="변동 수량" />
+        입출사유 <textarea id="stockCuzInput"> </textarea>
+        <button onclick="StockRegistration()"> 재고등록 </button>
+    </div>
+
+    <div>
+        <h2> 재고 로그 목록 </h2>
+        <table id="stockTable">
+            <thead>
+                <tr>
+                    <th> 제품명 </th>
+                    <th> 변동유형 </th>
+                    <th> 변동수량 </th>
+                    <th> 입출사유 </th>
+                    <th> 비고 </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> 코카콜라 </td>
+                    <td> 입고 </td>
+                    <td> 3 </td>
+                    <td> 제로에 밀림 </td>
+                    <td> <button onclick="stockEdit()"> 입출사유변경 </button> </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src='data.js'></script>
+    <script src='product.js'></script>
+    <script src='stock.js'></script>
