@@ -58,8 +58,8 @@
 03. 데이터 모델링
 04. 기능(함수) 설계
 05. 구현/로직
-06. 테스트 */
-/* ============================== < 03. 데이터 모델링 > ======================================= */
+06. 테스트 
+*//* ============================== < 03. 데이터 모델링 > ======================================= */
 
 // 03-1. 부서 배열
 const dpartmentList = [ { dno : 0 , dname : '기획팀' }, { dno : 1 , dname : '개발팀' },  { dno : 2 , dname : '영업팀' } ];
@@ -68,20 +68,21 @@ console.log( dpartmentList ); // 부서 확인
 
 // 03-2. 사원 배열
 let noImg = '//placehold.co/100x100'; // 이미지 없는 경우 
-const staffList = [ { dno : 0 , sno : 0 , sname : '김진숙' , slevel : '대표' , simg : noImg  },
+const staffList = [ { sno : 0 , dno : 0 , sname : '김진숙' , slevel : '대표' , simg : noImg  },
     { sno : 1 , dno : 1 ,  sname : '일론 머스크' , slevel : '사원' , simg : noImg  },
     { sno : 2 , dno : 2 ,  sname : '한재웅' , slevel : '이사' , simg : noImg  } ];
 let snoAuto = staffList.length; // 자동 사원번호 초기값
 console.log( staffList ); // 사원 확인
 
 // 03-3. 휴가신청 배열
-const vacationList = [ { vno : 0 , sno : 0 , vstart : '2025-07-01' , vend : '2025-07-15' , vmemo : '여름휴가' },
-    { vno : 1 , sno : 2 , vstart : '2025-08-01' , vend : '2025-08-01' , vmemo : '' } ];
+const vacationList = [ { vno : 0 , sno : 0 , vstart : '2025-07-01' , vend : '2025-07-15' , vmemo : '휴가당!' },
+    { vno : 1 , sno : 2 , vstart : '2025-08-01' , vend : '2025-08-01' , vmemo : '찾지마세요..' } ];
+let vnoAuto = vacationList.length; // 자동 휴가번호 초기값
 console.log( vacationList ); // 휴가신청 확인
 
 /* ================================ < 04. 기능(함수) 설계 > =================================== */
 
-/* ★ 04-1.부서 등록함수  ----------------------------------------------------------------------*/
+/*------------ ★ 04-1.부서 등록함수  ----------------------------------------------------------------*/
 
 function departmentAdd(){   console.log( '!부서 등록함수 >>> departmentAdd() exe' ); 
 //- 기능정의 : html 마크업 객체 부서등록 입력값 가져와서 부서 배열에 저장
@@ -109,7 +110,7 @@ function departmentAdd(){   console.log( '!부서 등록함수 >>> departmentAdd
             dnameInput.focus();
             return;
         }
-    }
+    }// for end.
     // 4) 객체 배열에 저장 
     dpartmentList.push( objDpartment );   console.log( dpartmentList ); //
     alert( '부서 등록되었습니다.' );
@@ -122,10 +123,10 @@ function departmentAdd(){   console.log( '!부서 등록함수 >>> departmentAdd
     // - 3. 사원현황 > 표 > 부서명(매개변수 : 부서ID)
 } // departmentAdd() end.
 
-/* ★ 04-2.부서 출력함수(전체 목록)   -----------------------------------------------------------*/
+/*------------ ★ 04-2.부서목록 출력함수   ---------------------------------------------------------------*/
 
 departmentList(); 
-function departmentList(){   console.log( '!부서 출력함수 >>> departmentList() exe' ); 
+function departmentList(){   console.log( '!부서목록 출력함수 >>> departmentList() exe' ); 
 //- 기능정의 : 부서배열에 저장 된 값을 html 표로 출력
 //- 실행조건 : 1. 해당 html/js 실행시 2.부서 신규등록이 성공적으로 배열 저장시 3.부서 삭제시 4. 부서 수정시
 //- 작업 순서 
@@ -144,14 +145,14 @@ function departmentList(){   console.log( '!부서 출력함수 >>> departmentLi
                         <button onclick="departmentDelete(${ department.dno })"> 삭제 </button>
                     </td>
                 </tr>`;
-
         dOption += `<option value="${ department.dno }"> ${ department.dname } </option>`;
-    }
+        
+    }// for end.
     dnameInput.innerHTML = tbody; // 부서관리 > 부서목록 테이블
     dnameSelect.innerHTML = dOption; //사원관리 > 부서선택 셀렉트박스
 } // departmentList() end.
 
-/* ★ 04-3. 부서 삭제함수  ----------------------------------------------------------------------*/
+/*------------ ★ 04-3. 부서 삭제함수  -------------------------------------------------------------------*/
 
 function departmentDelete( dno ){   console.log( '!부서 삭제함수 >>> departmentList() exe' ); 
 //- 기능정의 : html > 부서 목록(표) > 해당 부서 > 삭제 기능
@@ -164,18 +165,18 @@ function departmentDelete( dno ){   console.log( '!부서 삭제함수 >>> depar
         if( dno == department.dno ){
             if( confirm( `[${ department.dname }] 정말 삭제하시겠습니까? ` )  ){ 
                 dpartmentList.splice(i, 1)
-                alert( '부서명이 삭제되었습니다.' )
+                //alert( '부서명이 삭제되었습니다.' )
                 departmentList(); 
                 return;
             }else{
                 return; // 컨펌창 취소 눌렀을때 리턴(삭제 함수 종료!)
             }
         }
-    }
+    }// for end.
     alert( '[오류] 부서번호 확인!' )
 } // departmentDelete() end.
 
-/* ★ 04-4. 부서 수정함수  ----------------------------------------------------------------------*/
+/*------------ ★ 04-4. 부서 수정함수  ----------------------------------------------------------------------*/
 
 function departmentEdit( dno ){   console.log( '!부서 수정함수 >>> departmentEdit() exe' ); 
 //- 기능정의 : html > 부서 목록(표) > 해당 부서 > 수정 기능
@@ -194,11 +195,11 @@ function departmentEdit( dno ){   console.log( '!부서 수정함수 >>> departm
                 return; // 프롬프트 취소 눌렀을때 리턴(수정 함수 종료!)
             }
         }
-    }
+    }// for end.
     alert( '[오류] 부서번호 확인!' )
 } // departmentDelete() end.
 
-/* ★ 04-5. 사원 등록함수  ----------------------------------------------------------------------*/
+/*------------ ★ 04-5. 사원 등록함수  ----------------------------------------------------------------------*/
 
 function staffAdd(){   console.log( '!사원 등록함수 >>> staffAdd() exe' ); 
 //- 기능정의 : html 마크업 객체 사원등록 입력값 가져와서 사원 배열에 저장
@@ -212,12 +213,12 @@ function staffAdd(){   console.log( '!사원 등록함수 >>> staffAdd() exe' );
 
     const sname = snameInput.value;         console.log( sname );
     const slevel = slevelInput.value;       console.log( slevel );
-    const dno = sdepartSelset.value;     console.log( dno );
+    const dno = sdepartSelset.value;        console.log( dno );
     const simg = simgInput.files[0];        console.log( simg );
 
     // 2) 마크업 입력값 > 객체 구성 const staffList = [ { dno : 0 , sno : 0 , sname : '김진숙' , slevel : '대표' , simg : noImg  } // URL.createObjectURL( ) : Blob(Binary Large Object) 객체나 File 객체를 사용하여 URL을 생성할 수 있게 해주는 메서드,  자바스크립트의 웹 API 
     snoAuto++; 
-    let objStaff = { dno : Number(dno) , sno : snoAuto , sname : sname , slevel : slevel , simg : simg ? URL.createObjectURL( simg ) : noImg  };     console.log( objStaff );
+    let objStaff = { dno : Number(dno) , sno : snoAuto , sname : sname , slevel : slevel === '' ? '사원' : slevel , simg : simg ? URL.createObjectURL( simg ) : noImg  };  console.log( objStaff );
 
     // 3) 유효성 검사( 필수 입력 항목 )
     if( sname === '' ){
@@ -241,12 +242,23 @@ function staffAdd(){   console.log( '!사원 등록함수 >>> staffAdd() exe' );
 
     // 6) 사원 신규등록시 사원목록에 바로 반영
     staffsList();
-
 } // staffAdd() end.
 
+/*------------ ★ 04-6-2. 부서명 출력함수  --------------------------------------------------------------------*/
+function departmentName( dno ){   //console.log( '!부서명 출력함수 >>> departmentName() exe' ); 
+// 2) 부서 배열 순회하여  const dpartmentList = [ { dno : 0 , dname : '기획팀' } 해당 부서 객체 splice
+    for( let i = 0; i <= dpartmentList.length - 1; i++ ){
+        let department = dpartmentList[i]; 
+        if( dno === department.dno ){
+            return department.dname; 
+        }
+    }// for end.
+} // departmentName() end.
+
+/*------------ ★ 04-6-1. 사원목록 출력함수  -------------------------------------------------------------------*/
 staffsList();
-/* ★ 04-6-1. 사원 출력함수(목록)  -------------------------------------------------------------------*/
-function staffsList(){   console.log( '!사원 출력함수 >>> staffsList() exe' ); 
+
+function staffsList(){   console.log( '!사원목록 출력함수 >>> staffsList() exe' ); 
 //- 기능정의 : 사원 목록 출력
 //- 실행조건 : 1.html/js 실행시  2.사원 등록시  3.사원 삭제/수정시 
 //- 작업 순서 
@@ -262,37 +274,26 @@ function staffsList(){   console.log( '!사원 출력함수 >>> staffsList() exe
     trStaff += `<tr>
                     <td><img src="${ staff.simg }" /></td>
                     <td> ${ staff.sname } </td>
-                    <td> ${ staff.slevel === '' ? '사원' : staff.slevel } </td>
                     <td> ${ departmentName( staff.dno ) }</td>
+                    <td> ${ staff.slevel === '' ? '사원' : staff.slevel } </td>
                     <td>
                         <button onclick="staffEdit(${ staff.sno })"> 수정 </button>
                         <button onclick="staffDelete(${ staff.sno })"> 삭제 </button>
                     </td>
                 </tr>`
-    vOption += `<option value="${ staff.dno }"> ${ staff.sname }(${ departmentName( staff.dno ) }/${ staff.slevel === '' ? '사원' : staff.slevel })</option>`
-        
-    }
-    // 3) 반복 html 화면 출력
+    vOption += `<option value="${ staff.dno }"> ${ staff.sname }(${ departmentName( staff.dno ) }/${ staff.slevel })</option>`
+    }// for end.
+    // 3) html 화면 출력
     tbodyStaff.innerHTML = trStaff; // 사원관리 > 사원목록 테이블
     vSelect.innerHTML = vOption; // - 휴가 신청 > 사원 선택 셀렉트박스 
     // 3) 사원 등록/수정/삭제시 사원 목록 리로드
 
 } // staffList() end.
 
-/* ★ 04-6-2. 부서명 출력함수(목록)  --------------------------------------------------------------*/
-function departmentName( dno ){   console.log( '!부서명 출력함수 >>> departmentName() exe' ); 
-// 2) 부서 배열 순회하여  const dpartmentList = [ { dno : 0 , dname : '기획팀' } 해당 부서 객체 splice
-    for( let i = 0; i <= dpartmentList.length - 1; i++ ){
-        let department = dpartmentList[i]; 
-        if( dno === department.dno ){
-            return department.dname; 
-        }
-    }
-} // departmentName() end.
+/*------------ ★ 04-7. 사원 삭제함수  ------------------------------------------------------------------------*/
 
-/* ★ 04-7. 사원 삭제함수  ------------------------------------------------------------------------*/
 function staffDelete( sno ){   console.log( '!사원 삭제함수  >>> staffDelete(sno) exe' ); 
-// 2) 부서 배열 순회하여  const dpartmentList = [ { dno : 0 , dname : '기획팀' }  배열 객체 splice
+// 1) 사원 배열 순회하여 const staffList = [ { sno : 0 , dno : 0 , sname : '김진숙' , slevel : '대표' , simg : noImg  }, 배열 객체 splice
     for( let i = 0; i <= staffList.length - 1; i++ ){
         let staff = staffList[i]; 
         if( sno === staff.sno ){
@@ -304,18 +305,110 @@ function staffDelete( sno ){   console.log( '!사원 삭제함수  >>> staffDele
                 return;
             }
         }
-    }
+    } // for end.
     alert( '[오류] 사원번호 확인!' );
-} 
-/* ★ 04-8. 사원 수정함수  ------------------------------------------------------------------------*/
+} //staffDelete(sno) end.
 
-/* ★ 04-9. 사원 출력(목록) > 부서명 출력함수(매개변수: 부서ID )  -------------------------------------*/
+/*------------ ★ 04-8. 사원 수정함수  ------------------------------------------------------------------------*/
+
+function staffEdit( sno ){   console.log( '!사원 수정함수  >>> staffEdit(sno) exe' ); 
+// 1) 사원 배열 순회하여 const staffList = [ { sno : 0 , dno : 0 , sname : '김진숙' , slevel : '대표' , simg : noImg  },사원명, 직급 프롬프트로 수정
+    for( let i = 0; i <= staffList.length - 1; i++ ){
+        let staff = staffList[i]; 
+        if( sno === staff.sno ){
+            if(staff.sname = prompt( `수정할 이름 입력 ` )){
+                alert( '이름 수정 완료!' )
+                staffsList();
+            }
+            if( staff.slevel = prompt( `수정할 직급 입력 ` )){
+                alert( '직급 수정 완료!' )
+                staffsList();
+                return;
+            }else{ return; }  // 프롬프트 취소 눌렀을때 리턴(수정 함수 종료!)
+        }
+    } // for end.
+    alert( '[오류] 사원번호 확인!' );
+} //staffEdit(sno) end.
+
+/*------------ ★ 04-10. 휴가신청 등록함수   -------------------------------------------------------------------*/
+
+function vacationAdd( ){   console.log( '!휴가신청 등록함수  >>> vacationAdd() exe' ); 
+    // 1) 마크업 객체/밸류값 가져오기
+    const vnameSelect = document.querySelector( '#vacations select' );      console.log( vnameSelect ); 
+    const vmemoInput = document.querySelector( '#vmemoInput' );             console.log( vmemoInput ); 
+    const vstartInput = document.querySelector( '#vstartInput' );           console.log( vstartInput ); 
+    const vendInput = document.querySelector( '#vendInput' );               console.log( vendInput ); 
+
+    const sno = vnameSelect.value;      console.log( sno ); 
+    const vmemo = vmemoInput.value;     console.log( vmemo ); 
+    const vstart = vstartInput.value;   console.log( vstart ); 
+    const vend = vendInput.value;       console.log( vend ); 
+
+    // 2) 마크업 객체 사용자 입력값 > 휴가 객체 생성하기/유효성 검사/입력값 초기화 
+    // const vacationList = [ { vno : 0 , sno : 0 , vstart : '2025-07-01' , vend : '2025-07-15' , vmemo : '여름휴가' },
+    // 현재 날짜 구하기 객체함수 --> new Date();
+    let year = new Date().getFullYear();        // 현재 연도 반환 함수
+    let month = new Date().getMonth() + 1;      // 현재 월 반환 함수, 1월이 0부터 시작
+        month = month < 9 ? `0${month}`: month;
+    let day = new Date().getDate();             // 현재 일 반환
+    let week = new Date().getDay()              //현재 요일 반환 함수 * 일요일은 0반환 , 월요일 1반환 ~~ 토요일 6반환
+    let pdate = `${ year }-${ month }-${ day }`;     console.log( pdate );  console.log( week );
+    vnoAuto++;
+    const objVacation = { vno : vnoAuto , sno : Number(sno) , vstart : vstart , vend : vend , vmemo : vmemo };    console.log( objVacation );
+    // 유효성 검사
+    if( sno === '' || vstart === '' || vend === '' ){
+        alert( '휴가신청 항목을 빠짐없이 입력하세요' )
+        return;
+    }
+    if( vstart > vend ){
+        alert( '휴가 시작일을 확인하세요.' )
+        return;
+    }
+    if( vstart < pdate || vend < pdate ){
+        alert( `휴가 시작(종료)일은 오늘(${ pdate }) 이후로 선택하세요.` )
+        return;
+    }
+    // 마크업 객체 입력값 초기화 
+    vnameSelect.value =''; 
+    vmemoInput.value =''; 
+    vstartInput.value =''; 
+    vendInput.value =''; 
+
+    // 3) 생성한 휴가객체 휴가신청 배열에 저장 
+    vacationList.push( objVacation );
+    alert( `휴가 신청 성공!` ) // 휴가 가기 어렵네....ㅜㅜ
+
+    // 4) 생성한 휴가객체 휴가목록에 반영
+
+} //vacationAdd() end.
+
+/*------------ ★ 04-11. 휴가신청목록 출력함수  ------------------------------------------------------------------*/
+vacationsList(); 
+function vacationsList(){   console.log( '!휴가신청목록 출력함수  >>> vacationsList() exe' ); 
+//- 기능정의 : 휴가신청목록 html 출력
+//- 실행조건 : 1.html/js 실행시  2.휴가신청 등록시  3.휴가신청 취소시 
+//- 작업 순서 
+    // 1) HTML 출력할 위치의 마크업 객체 가져오기/ 반복 출력 html 변수 선언
+    const ul = document.querySelector( '#vacationList' );
+    let html ='';
+    // 2) 휴가신청 배열 순회하여 데이터 출력// const vacationList = [ { vno : 0 , sno : 0 , vstart : '2025-07-01' , vend : '2025-07-15' , vmemo : '여름휴가' },
+    for( let i = 0; i <= vacationList.length - 1; i++ ){
+        let vacation = vacationList[i]; 
+
+        html +=`<ul>
+                    <li><b></b> <button onclick="vacationCancel(${vacation.vno})">신청취소</button></li>
+                    <li>휴가기간 : ${vacation.vstart} ~ ${vacation.vend}</li>
+                    <li>휴가사유 : ${vacation.vmemo}</li>
+                </ul>`;
 
 
-/* ★ 04-10. 휴가신청 등록 함수   -------------------------------------------------------------------*/
-/* ★ 04-11. 휴가신청 출력 함수(목록)  ---------------------------------------------------------------*/
-/* ★ 04-12. 휴가신청 취소 함수   -------------------------------------------------------------------*/
-/* ★ 04-13. 휴가신청 (목록) > 사원명 출력함수(매개변수: 사원ID )  -------------------------------------*/
+    } // for end
+    // 3) html 출력 
+    ul.innerHTML = html; 
+    // 4) 휴가 등록/신청취소 됐을경우 목록 업데이트
 
+    // 5) 연관된 부서명 출력
+} //
+/*------------ ★ 04-12. 휴가신청 취소 함수   -------------------------------------------------------------------*/
 
 

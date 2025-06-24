@@ -11,7 +11,7 @@
     <!-- header -->
     <header id="header">
         <h1>Root Lab</h1>
-        <h2>인사관리</h2>
+        <h2>인사관리 시스템</h2>
     </header>
     <!-- header end -->
     <!-- main -->
@@ -26,7 +26,7 @@
                 <button class="btnAdd" onclick="departmentAdd();"> 부서추가 </button>
             </section>
             <!-- 01-2.부서현황(R/U/D) -->
-            <section class="list">
+            <section>
                 <table>
                     <caption>부서현황</caption>
                     <thead>
@@ -47,7 +47,7 @@
                     <tfoot>
                         <tr>
                             <th></th>
-                            <th id="sum"></th>
+                            <th></th>
                         </tr>
                     </tfoot>
                 </table>
@@ -68,18 +68,18 @@
                     <option value="2"> 개발팀 </option>
                 </select>
                 <input id="simgInput" type="file" accept="image/*" placeholder="증명사진"/>
-                <button class="btnAdd" onclick="staffAdd();"> 사원등록 </button>
+                <button onclick="staffAdd();"> 사원등록 </button>
             </section>
             <!-- 02-2.사원현황(R/U/D) -->
-            <section class="list">
+            <section>
                 <table>
                     <caption>사원현황</caption>
                     <thead>
                         <tr>
                             <th>사진</th>
                             <th>이름</th>
-                            <th>직급</th>
                             <th>부서</th>
+                            <th>직급</th>
                             <th>관리</th>
                         </tr>
                     </thead>
@@ -98,7 +98,7 @@
                     <tfoot>
                         <tr>
                             <th colspan="4"></th>
-                            <th id="sum"></th>
+                            <th></th>
                         </tr>
                     </tfoot>
                 </table>
@@ -118,16 +118,18 @@
                 <input id="vmemoInput" type="text" placeholder="휴가사유 입력" />
                 <input id="vstartInput" type="date" placeholder="휴가시작일*" />
                 <input id="vendInput" type="date" placeholder="휴가종료일*" />
-                <button class="btnAdd" onclick="vacationAdd();"> 휴가신청 </button>
+                <button onclick="vacationAdd();"> 휴가신청 </button>
             </section>
             <!-- 03-2.신청현황(R/U/D) -->
-            <section class="list">
+            <section>
                 <h4>신청현황</h4>
-                <ul>
-                    <li><b>김진숙 대표(기획팀)</b> <button onclick="">신청취소</button></li>
-                    <li>휴가기간 : 2025-07-10 ~ 2025-07-20</li>
-                    <li>휴가사유 : 여름휴가</li>
-                </ul>
+                <div id="vacationList">
+                    <ul>
+                        <li><b>김진숙 대표(기획팀)</b> <button onclick="">신청취소</button></li>
+                        <li>휴가기간 : 2025-07-10 ~ 2025-07-20</li>
+                        <li>휴가사유 : 여름휴가</li>
+                    </ul>
+                </div>
             </section>
         </div>
         <!-- 03. 휴가신청관리 end -->
