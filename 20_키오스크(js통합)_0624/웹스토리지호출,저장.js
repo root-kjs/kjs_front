@@ -30,7 +30,7 @@ function setProducts( products ){
 // ]
 // let pcode = 3;
 
-// 제품등록 : 송지훈
+// 제품등록
 function productAdd() { console.log(`1번 실행`);
     const pnameInput = document.querySelector('#pnameInput'); console.log(pnameInput);
     const ppriceInput = document.querySelector('#ppriceInput'); console.log(ppriceInput);
@@ -68,7 +68,7 @@ function productAdd() { console.log(`1번 실행`);
     productPrint()// 제품조회 함수 호출
 }
 
-// 제품조회 : 신승민
+// 제품조회
 productPrint(); // 페이지 열렸을 때 초기 1번 함수 실행
 function productPrint() { console.log(productPrint);
     console.log(`productPrint in`);
@@ -97,7 +97,7 @@ function productPrint() { console.log(productPrint);
 
 }   //func end : 출력함수 끝
 
-// 제품삭제 : 이원국
+// 제품삭제 
 function productDelete(pcode) {
     console.log('삭제');
     console.log(pcode);

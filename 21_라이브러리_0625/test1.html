@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>로컬스토리지</title>
+
+</head>
+
+<body>
+
+
+    <input id="pnameInput" type="text" placeholder="제품명">
+    <input id="ppriceInput" type="number" placeholder="가격">
+    <input id="pmemoInput" type="text" placeholder="메모">
+    <input id="pimgInput" type="file" placeholder="사진">
+    <button onclick="productAdd()"> 등록 </button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>사진</th>
+                <th>제품명</th>
+                <th>가격</th>
+                <th>메모</th>
+                <th>비고</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="//placehold.co/100x100" /></td>
+                <td>사이다</td>
+                <td>1000</td>
+                <td>..</td>
+                <td><button onclick="productDelete()"> 삭제 </button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>
+
+<script src="test1_로컬스토리지.js"> </script>
