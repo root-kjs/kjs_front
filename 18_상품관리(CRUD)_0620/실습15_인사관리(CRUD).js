@@ -245,7 +245,8 @@ function staffAdd(){   console.log( '!사원 등록함수 >>> staffAdd() exe' );
 } // staffAdd() end.
 
 /*------------ ★ 04-6-2. 부서명 출력함수  --------------------------------------------------------------------*/
-function departmentName( dno ){   //console.log( '!부서명 출력함수 >>> departmentName() exe' ); 
+
+function departmentName( dno ){   //console.log( '!부서명 출력함수 >>> departmentName(dno) exe' ); 
 // 2) 부서 배열 순회하여  const dpartmentList = [ { dno : 0 , dname : '기획팀' } 해당 부서 객체 splice
     for( let i = 0; i <= dpartmentList.length - 1; i++ ){
         let department = dpartmentList[i]; 
@@ -253,11 +254,21 @@ function departmentName( dno ){   //console.log( '!부서명 출력함수 >>> de
             return department.dname; 
         }
     }// for end.
-} // departmentName() end.
+} // departmentName(dno) end.
+
+/*------------ ★ 04-6-3. 사원정보(객체) 출력함수  ---------------------------------------------------------------*/
+
+function staffName( sno ){   //console.log( '!사원명 출력함수 >>> staffName(sno) exe' ); 
+// 1) 사원 배열 순회 const staffList = [ { dno : 0 , sno : 0 , sname : '김진숙' , slevel : '대표' , simg : noImg  },
+    for( let i = 0; i <= staffList.length - 1; i++ ){
+        let staff = staffList[i]; 
+        if( sno === staff.sno ){ return staff;  }
+    }// for end.
+} // staffName(sno) end.
 
 /*------------ ★ 04-6-1. 사원목록 출력함수  -------------------------------------------------------------------*/
-staffsList();
 
+staffsList();
 function staffsList(){   console.log( '!사원목록 출력함수 >>> staffsList() exe' ); 
 //- 기능정의 : 사원 목록 출력
 //- 실행조건 : 1.html/js 실행시  2.사원 등록시  3.사원 삭제/수정시 
@@ -317,10 +328,12 @@ function staffEdit( sno ){   console.log( '!사원 수정함수  >>> staffEdit(s
         let staff = staffList[i]; 
         if( sno === staff.sno ){
             if(staff.sname = prompt( `수정할 이름 입력 ` )){
+                //if( staff.sname === '' ){alert( '수정하실 이름을 입력하세요.' ) }
                 alert( '이름 수정 완료!' )
                 staffsList();
             }
             if( staff.slevel = prompt( `수정할 직급 입력 ` )){
+                //if( staff.sname === null ){alert( '수정하실 이름을 입력하세요.' ) }
                 alert( '직급 수정 완료!' )
                 staffsList();
                 return;
@@ -379,10 +392,11 @@ function vacationAdd( ){   console.log( '!휴가신청 등록함수  >>> vacatio
     alert( `휴가 신청 성공!` ) // 휴가 가기 어렵네....ㅜㅜ
 
     // 4) 생성한 휴가객체 휴가목록에 반영
-
+    vacationsList();
 } //vacationAdd() end.
 
 /*------------ ★ 04-11. 휴가신청목록 출력함수  ------------------------------------------------------------------*/
+
 vacationsList(); 
 function vacationsList(){   console.log( '!휴가신청목록 출력함수  >>> vacationsList() exe' ); 
 //- 기능정의 : 휴가신청목록 html 출력
@@ -391,24 +405,40 @@ function vacationsList(){   console.log( '!휴가신청목록 출력함수  >>> 
     // 1) HTML 출력할 위치의 마크업 객체 가져오기/ 반복 출력 html 변수 선언
     const ul = document.querySelector( '#vacationList' );
     let html ='';
-    // 2) 휴가신청 배열 순회하여 데이터 출력// const vacationList = [ { vno : 0 , sno : 0 , vstart : '2025-07-01' , vend : '2025-07-15' , vmemo : '여름휴가' },
+    // 2) 휴가신청 배열 순회// const vacationList = [ { vno : 0 , sno : 0 , vstart : '2025-07-01' , vend : '2025-07-15' , vmemo : '여름휴가' },
     for( let i = 0; i <= vacationList.length - 1; i++ ){
         let vacation = vacationList[i]; 
-
+        let staffInfo = staffName( vacation.sno ); // 사원정보 함수에서 사원객체정보 가져와서 원하는 정보 추출!
         html +=`<ul>
-                    <li><b></b> <button onclick="vacationCancel(${vacation.vno})">신청취소</button></li>
+                    <li><b>${ staffInfo.sname }(${departmentName( vacation.sno )}/${ staffInfo.slevel })</b> <button onclick="vacationCancel(${vacation.vno})">신청취소</button></li>
                     <li>휴가기간 : ${vacation.vstart} ~ ${vacation.vend}</li>
                     <li>휴가사유 : ${vacation.vmemo}</li>
                 </ul>`;
-
-
     } // for end
-    // 3) html 출력 
+    // 3) html 출력(대입) 
     ul.innerHTML = html; 
     // 4) 휴가 등록/신청취소 됐을경우 목록 업데이트
+} // vacationsList() end.
 
-    // 5) 연관된 부서명 출력
-} //
 /*------------ ★ 04-12. 휴가신청 취소 함수   -------------------------------------------------------------------*/
 
-
+function vacationCancel( vno ){   console.log( '!휴가신청 취소함수  >>> vacationCancel() exe' ); 
+//- 기능정의 : 휴가신청건 개별 취소(삭제)
+//- 실행조건 : 3.휴가신청 취소 버튼 클릭시 
+//- 작업 순서 
+    // 1) HTML 출력할 위치의 마크업 객체 가져오기/ 반복 출력 html 변수 선언
+    let html ='';
+    // 2) 휴가신청 배열 순회// const vacationList = [ { vno : 0 , sno : 0 , vstart : '2025-07-01' , vend : '2025-07-15' , vmemo : '여름휴가' },
+    for( let i = 0; i <= vacationList.length - 1; i++ ){
+        let vacation = vacationList[i]; 
+        if( vno == vacation.vno ){
+            if( confirm( '정말로 휴가신청 취소하겠습니까?' ) ){
+            vacationList.splice( i , 1 );
+            vacationsList(); 
+            return;
+            } else{ return; }
+        }
+    } // for end
+    alert( '[오류] 휴가번호 확인!' );
+    // 4) 휴가 등록/신청취소 됐을경우 목록 업데이트
+} // vacationCancel() end.
