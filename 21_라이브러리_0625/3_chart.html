@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>3_chart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+</head>
+
+<body>
+
+    <h1> 챠트JS : chartjs.org/docs/latest/getting-started/ </h1>
+    <!-- 캔버스 영역 -->
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+    <!-- CDN 가져오기 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- 챠트 객체(인스턴스) 구현 -->
+    <script>
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+            type: 'line',   // 챠트 유형 : bar, line
+            data: {         // 챠트에 표시되는 데이터
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'], // 가로측 항목
+                // { } 1개당 데이터셋 1개, label : 데이터명 / data : 데이터들
+                datasets: [
+                    { label: '범례1', data: [12, 50, 3, 5, 2, 3] }, { label: '범례2', data: [50, 10, 13, 15, 12, 13] }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+    <!-- <script> // 원본
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script> -->
+
+    <div>
+        <canvas id="myChart2"></canvas>
+    </div>
+
+    <script> // 공공데이터 챠트 통계 만들기_250626(수) : 아주 좋아용!
+        const ctx2 = document.getElementById('myChart2');
+let response = 
+{
+  "currentCount": 10,
+  "data": [
+    {
+      "데이터기준일자": "2025-01-31",
+      "동별": "부평1동",
+      "세대수": 17196,
+      "인구수(계)": 34809,
+      "인구수(남)": 16671,
+      "인구수(여)": 18138
+    },
+    {
+      "데이터기준일자": "2025-01-31",
+      "동별": "부평2동",
+      "세대수": 7793,
+      "인구수(계)": 15326,
+      "인구수(남)": 7594,
+      "인구수(여)": 7732
+    },
+    {
+      "데이터기준일자": "2025-01-31",
+      "동별": "부평3동",
+      "세대수": 7381,
+      "인구수(계)": 14889,
+      "인구수(남)": 7379,
+      "인구수(여)": 7510
+    },
+    {
+      "데이터기준일자": "2025-01-31",
+      "동별": "부평4동",
+      "세대수": 17750,
+      "인구수(계)": 33475,
+      "인구수(남)": 16530,
+      "인구수(여)": 16945
+    },
+    {
+      "데이터기준일자": "2025-01-31",
+      "동별": "부평5동",
+      "세대수": 16357,
+      "인구수(계)": 33137,
+      "인구수(남)": 16287,
+      "인구수(여)": 16850
+    },
+    {
+      "데이터기준일자": "2025-01-31",
+      "동별": "부평6동",
+      "세대수": 8469,
+      "인구수(계)": 17339,
+      "인구수(남)": 8527,
+      "인구수(여)": 8812
+    },
+    {
+      "데이터기준일자": "2025-01-31",
+      "동별": "산곡1동",
+      "세대수": 6476,
+      "인구수(계)": 14753,
+      "인구수(남)": 7265,
+      "인구수(여)": 7488
+    },
+    {
+      "데이터기준일자": "2025-01-31",
+      "동별": "산곡2동",
+      "세대수": 10680,
+      "인구수(계)": 29107,
+      "인구수(남)": 14264,
+      "인구수(여)": 14843
+    },
+    {
+      "데이터기준일자": "2025-01-31",
+      "동별": "산곡3동",
+      "세대수": 8521,
+      "인구수(계)": 20016,
+      "인구수(남)": 9659,
+      "인구수(여)": 10357
+    },
+    {
+      "데이터기준일자": "2025-01-31",
+      "동별": "산곡4동",
+      "세대수": 6558,
+      "인구수(계)": 16457,
+      "인구수(남)": 7828,
+      "인구수(여)": 8629
+    }
+  ],
+  "matchCount": 22,
+  "page": 1,
+  "perPage": 10,
+  "totalCount": 22
+}
+
+        // 가로축에 들어갈 항목 만들기 ( 원하는 데이터로 가공 : 데이터 전처리 )
+        let 가로축 = []; // labels
+
+        // 데이터셋에 들어갈 인구수(배열)과 세대수(배열) 만들기
+        let 인구수 = []; // datasets
+        let 세대수 = [];
+
+        // for문을 이용한 위의 데이터 정리
+        for( let i = 0; i <= response.data.length -1; i++ ){
+            let obj = response.data[i];
+
+            가로축.push( obj['동별'] );  // response.data 객체안의 속성값을 배열로 저장
+            인구수.push( obj['인구수(계)'] );
+            세대수.push( obj['세대수'] );
+
+        }
+
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: 가로축,
+                datasets: [ { label: '인구수', data: 인구수 }, { label: '세대수', data: 세대수 } ] },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        
+    </script>
+
+<script src='3_chart.js'></script>
+</body>
+</html>
